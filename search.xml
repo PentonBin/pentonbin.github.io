@@ -1,207 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Ubuntu16.04安装VMWare Workstation</title>
-    <url>/2018/03/07/Ubuntu16.04%E5%AE%89%E8%A3%85VMWare%20Workstation/</url>
-    <content><![CDATA[<h2 id="一、安装过程"><a href="#一、安装过程" class="headerlink" title="一、安装过程"></a>一、安装过程</h2><h3 id="1-安装开发工具"><a href="#1-安装开发工具" class="headerlink" title="1. 安装开发工具"></a>1. 安装开发工具</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install build-essential</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-下载"><a href="#2-下载" class="headerlink" title="2. 下载"></a>2. 下载</h3><p>从VMWare的官网<span class="exturl" data-url="aHR0cDovL3d3dy52bXdhcmUuY29tL2dvL3RyeXdvcmtzdGF0aW9uLWxpbnV4LTY0">http://www.vmware.com/go/tryworkstation-linux-64<i class="fa fa-external-link-alt"></i></span> 下载，文件类型是<code>.bundle</code>。<br>此时下载的版本是Vmware Workstation 14。</p>
-<span id="more"></span>
-
-
-<h3 id="3-安装VMWare"><a href="#3-安装VMWare" class="headerlink" title="3. 安装VMWare"></a>3. 安装VMWare</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chmod</span> a+x VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo ./VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle</span></span><br></pre></td></tr></table></figure>
-<p>执行后会出现VMWare的安装窗口，需要同意协议、选择是否在启动时检查更新等操作，最后安装完成。</p>
-<h3 id="4-启动VMWare"><a href="#4-启动VMWare" class="headerlink" title="4. 启动VMWare"></a>4. 启动VMWare</h3><p>在终端启动，或者在菜单启动</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vmware</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="5-激活密钥"><a href="#5-激活密钥" class="headerlink" title="5. 激活密钥"></a>5. 激活密钥</h3><p>网上找的VMware workstation 14永久激活密钥：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CG54H-D8D0H-H8DHY-C6X7X-N2KG6</span><br><span class="line">ZC3WK-AFXEK-488JP-A7MQX-XL8YF</span><br><span class="line">AC5XK-0ZD4H-088HP-9NQZV-ZG2R4</span><br><span class="line">ZC5XK-A6E0M-080XQ-04ZZG-YF08D</span><br><span class="line">ZY5H0-D3Y8K-M89EZ-AYPEG-MYUA8</span><br><span class="line">FF590-2DX83-M81LZ-XDM7E-MKUT4</span><br><span class="line">FF31K-AHZD1-H8ETZ-8WWEZ-WUUVA</span><br><span class="line">CV7T2-6WY5Q-48EWP-ZXY7X-QGUWD</span><br><span class="line">AALYG-20HVE-WHQ13-67MUP-XVMF3</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-卸载VMWare"><a href="#6-卸载VMWare" class="headerlink" title="6. 卸载VMWare"></a>6. 卸载VMWare</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo vmware-installer --uninstall-product vmware-workstation</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="二、解决could-not-open-dev-vmmon-no-such-file-or-directory问题"><a href="#二、解决could-not-open-dev-vmmon-no-such-file-or-directory问题" class="headerlink" title="二、解决could not open &#x2F;dev&#x2F;vmmon no such file or directory问题"></a>二、解决could not open &#x2F;dev&#x2F;vmmon no such file or directory问题</h2><h3 id="1-方法1"><a href="#1-方法1" class="headerlink" title="1. 方法1"></a>1. 方法1</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /tmp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">tar -xzvf /usr/lib/vmware/modules/source/vmmon.tar</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> vmmon-only/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">make</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">cp</span> vmmon.ko /lib/modules/4.4.0-116-generic/misc/vmmon.ko</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo modprobe vmmon</span></span><br></pre></td></tr></table></figure>
-<p>如果执行tar解压时候出现：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gzip: stdin: not in gzip format</span><br><span class="line">tar: Child returned status 1</span><br><span class="line">tar: Error is not recoverable: exiting now</span><br></pre></td></tr></table></figure>
-<p>则将上面<code>tar -xzvf /usr/lib/vmware/modules/source/vmmon.tar</code>命令改为：<code>tar xvf /usr/lib/vmware/modules/source/vmmon.tar</code></p>
-<p>执行完上面的步骤之后，启动虚拟机，看是否解决了问题。</p>
-<p><strong>参考：</strong><span class="exturl" data-url="aHR0cHM6Ly9jb21tdW5pdGllcy52bXdhcmUuY29tL21lc3NhZ2UvMjQ0Mjc4Mw==">https://communities.vmware.com/message/2442783<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="2-方法2"><a href="#2-方法2" class="headerlink" title="2. 方法2"></a>2. 方法2</h3><p>可能出现的原因和gcc版本有关，所以查看自己gcc的版本：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gcc --version</span></span><br><span class="line">gcc (Ubuntu 5.4.0-6ubuntu1~16.04.9) 5.4.0 20160609</span><br><span class="line">Copyright (C) 2015 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source for copying conditions. There is NO</span><br><span class="line">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
-<p>如果gcc版本太低，例如4.5（4.6及以上应该没问题），则安装新版本的gcc，例如：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install gcc-5</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">rm</span> /usr/bin/gcc</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">ln</span> -s /usr/bin/gcc-5 /usr/bin/gcc</span></span><br></pre></td></tr></table></figure>
-
-<p>确认更新gcc版本之后，执行：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo vmware-modconfig --console --install-all</span></span><br></pre></td></tr></table></figure>
-<p>如果最后出现以下结果则表示成功。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Starting VMware services:</span><br><span class="line">   Virtual machine monitor                  done</span><br><span class="line">   Virtual machine communication interface  done</span><br><span class="line">   VM communication interface socket family done</span><br><span class="line">   Blocking file system                     done</span><br><span class="line">   Virtual ethernet                         done</span><br><span class="line">   VMware Authentication Daemon             done</span><br><span class="line">   Shared Memory Available                  done</span><br></pre></td></tr></table></figure>
-<p>如果最后执行结果中出现了如下的failed，则<strong>关闭BIOS中的secure boot</strong>，然后再执行：<code>sudo vmware-modconfig --console --install-all</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Starting VMware services:</span><br><span class="line">   Virtual machine monitor                  failed</span><br><span class="line">   Virtual machine communication interface  done</span><br><span class="line">   VM communication interface socket family done</span><br><span class="line">   Blocking file system                     done</span><br><span class="line">   Virtual ethernet                         failed</span><br><span class="line">   VMware Authentication Daemon             done</span><br><span class="line">   Shared Memory Available                  done</span><br></pre></td></tr></table></figure>
-
-<p><strong>参考：</strong><span class="exturl" data-url="aHR0cHM6Ly9jb21tdW5pdGllcy52bXdhcmUuY29tL21lc3NhZ2UvMjYxMTUxNyMyNjExNTE3">https://communities.vmware.com/message/2611517#2611517<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>VMWare Workstation</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu搭载Android开发环境（无需翻墙）</title>
-    <url>/2017/11/27/Ubuntu%E6%90%AD%E8%BD%BDAndroid%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%88%E6%97%A0%E9%9C%80%E7%BF%BB%E5%A2%99%EF%BC%89/</url>
-    <content><![CDATA[<h2 id="一、相关下载的地址"><a href="#一、相关下载的地址" class="headerlink" title="一、相关下载的地址"></a>一、相关下载的地址</h2><ol>
-<li>sdk下载</li>
-</ol>
-<ul>
-<li>郑州大学：<span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLnp6dS5lZHUuY24vYW5kcm9pZC9yZXBvc2l0b3J5Lw==">https://mirrors.zzu.edu.cn/android/repository/<i class="fa fa-external-link-alt"></i></span></li>
-<li>大连东软信息学院：<span class="exturl" data-url="aHR0cDovL21pcnJvcnMubmV1c29mdC5lZHUuY24vYW5kcm9pZC9yZXBvc2l0b3J5Lw==">http://mirrors.neusoft.edu.cn/android/repository/<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<ol start="2">
-<li>Android studio</li>
-</ol>
-<ul>
-<li>Android Studio 中文社区(官网)：<span class="exturl" data-url="aHR0cDovL3d3dy5hbmRyb2lkLXN0dWRpby5vcmcv">http://www.android-studio.org/<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-<span id="more"></span>
-
-
-<hr>
-<h2 id="二、下载SDK相关包"><a href="#二、下载SDK相关包" class="headerlink" title="二、下载SDK相关包"></a>二、下载SDK相关包</h2><p>新建SDK目录，SDK的目录下面用<code>$SDK</code>表示：</p>
-<ol>
-<li>在<code>$SDK</code>下新建**<code>build-tools</code>、<code>tools</code>、<code>platform-tools</code>、<code>platforms</code>**四个文件夹。</li>
-<li>下载**<code>build-tools</code>**</li>
-</ol>
-<ul>
-<li>找到对应的平台，例如linux、macosx、windows等</li>
-<li>解压下载的zip包，解压后得到<code>android-6.0</code>或<code>23.0.1</code>，<strong>放到<code>$SDK/build-tools/</code>目录下</strong></li>
-</ul>
-<ol start="3">
-<li>下载**<code>sdk tools</code>**</li>
-</ol>
-<ul>
-<li>找到对应的平台，例如linux、macosx、windows等</li>
-<li>解压下载的zip包，解压后得到<code>tools</code>，<strong>直接放到<code>$SDK/</code>目录下</strong></li>
-</ul>
-<ol start="4">
-<li>下载**<code>platform-tools</code>**</li>
-</ol>
-<ul>
-<li>找到对应的平台，例如linux、macosx、windows等</li>
-<li>解压下载的zip包，解压后得到<code>platform-tools</code>，<strong>直接放到<code>$SDK/</code>目录下</strong></li>
-</ul>
-<ol start="5">
-<li>下载**<code>sdk</code>**</li>
-</ol>
-<ul>
-<li>找到对应API的zip包，例如<code>android-23_r02.zip</code>（23_r03之前名字）或<code>platform-23_r03.zip</code>（23_r03及之后的名字），不分平台</li>
-<li>解压下载的zip包，解压后得到<code>android-6.0</code>，<strong>放到<code>$SDK/platforms/</code>目录下</strong></li>
-</ul>
-<hr>
-<h2 id="三、安装Android-Studio"><a href="#三、安装Android-Studio" class="headerlink" title="三、安装Android Studio"></a>三、安装Android Studio</h2><ol>
-<li>解压Android Studio的压缩包，Studio的目录下面用<code>$STUDIO</code>表示</li>
-<li>cd到<code>$STUDIO/bin</code>目录，通过<code>./studio.sh</code>启动Studio</li>
-</ol>
-<ul>
-<li>如果启动Studio的时出现<code>Unable to access android sdk add-on list</code>的问题，在<code>$STUDIO/bin/idea.properties</code>文件末尾添加：<code>disable.android.first.run=true</code>即可。</li>
-</ul>
-<ol start="3">
-<li>进入Studio。</li>
-</ol>
-<hr>
-<h2 id="四、其他问题"><a href="#四、其他问题" class="headerlink" title="四、其他问题"></a>四、其他问题</h2><p>说明：Studio的log文件在用户目录下<code>$HOME/.AndroidStudio2.3/system/log</code>中，其中目录可能因为Studio的版本不同而名字不同，例如<code>.AndroidStudioPreview3.1</code>。有问题均可查看该日志文件。</p>
-<ol>
-<li><code>Error:Failed to find target with hash string &#39;android-26&#39; in $SDK</code>的问题<br> 这个问题很可能是因为<code>compileSdkVersion</code>设置为26，也就是<code>platforms</code>目录下缺少Android8.0（API 26）。下载API 26并解压到<code>platforms</code>目录下即可。</li>
-<li><code>Error:Failed to find Build Tools revision 27.0.1</code><br> 缺少build-tools 27.0.1的版本，下载对应的zip包，解压到<code>build-tools</code>即可</li>
-</ol>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-        <category>Android</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>Android</tag>
-        <tag>开发环境</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>wine安装最新版QQ</title>
-    <url>/2017/11/26/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/</url>
-    <content><![CDATA[<p><strong>注意：无需继续使用该方法在 Linux 上安装 QQ 了，官方已经正式支持 LinuxQQ：<span class="exturl" data-url="aHR0cHM6Ly9pbS5xcS5jb20vbGludXhxcS9pbmRleC5zaHRtbA==">QQ Linux版下载<i class="fa fa-external-link-alt"></i></span></strong></p>
-<span id="more"></span>
-
-
-<h2 id="1-安装wine"><a href="#1-安装wine" class="headerlink" title="1. 安装wine"></a>1. 安装wine</h2><p>本次教程只需要安装最新版本的wine，并不需要<code>winetricks</code>、<code>wine-mono</code>、<code>wine-gecko</code>等其他插件，目前经实际测试发现只运行WineQQ可以不需要<code>wine-mono</code>、<code>wine-gecko</code>、<code>W2KSP4.exe</code>、<code>InstMsiW.exe</code>等。</p>
-<p>安装wine步骤如下：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo dpkg --add-architecture i386</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget https://dl.winehq.org/wine-builds/Release.key</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-key add Release.key</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get update</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get install --install-recommends winehq-stable</span></span><br></pre></td></tr></table></figure>
-
-<p>至此wine安装完成，可以通过<code>wine --version</code>查看版本号（此时安装的是wine2.0.3）。</p>
-<p>接下来需要执行<code>winecfg</code>来配置wine，接着会弹出安装<code>wine-mono</code>和<code>wine-gecko</code>的窗口，可以不用安装，关掉即可。</p>
-<hr>
-<h2 id="2-配置wine"><a href="#2-配置wine" class="headerlink" title="2. 配置wine"></a>2. 配置wine</h2><ol>
-<li>执行<code>winecfg</code>打开wine的配置窗口</li>
-<li>点击<code>Libraries</code><br><br> <img src="/images/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/winecfg%E9%85%8D%E7%BD%AE.png" alt="winecfg配置"></li>
-<li>在<code>New override for library</code>中分别输入<code>*ntoskrnl.exe</code>、<code>*riched20</code>、<code>*txplatform.exe</code>，然后回车（名字前的<code>*</code>号可以省略）。</li>
-<li>在<code>Existing_overrides</code>新出现的<code>*ntoskrnl.exe</code>和<code>*txplatform.exe</code>，分别点击<code>Edit</code>，均选择<code>Disable</code>；<code>*riched20</code>点击<code>Edit</code>，选择<code>native then builtin</code></li>
-</ol>
-<ul>
-<li>如果不配置riched20的话则安装好QQ后无法输入用户名</li>
-<li>不停用txplatform.exe则WineQQ无法完整退出，导致关掉重开后提示QQ文件被占用</li>
-<li>禁用ntoskrnl.exe是为了规避可能出现QQ无法启动的bug。</li>
-</ul>
-<hr>
-<h2 id="3-解决乱码问题"><a href="#3-解决乱码问题" class="headerlink" title="3. 解决乱码问题"></a>3. 解决乱码问题</h2><ol>
-<li>初始配置<br> 运行<code>winecfg</code>，在<code>Applications</code>标签下把模拟的windows系统设置为windows xp</li>
-<li>准备字体<br> 把Windows目录下的字体<code>simsun.ttc</code>复制到<code>/usr/share/fonts/windows</code>里面</li>
-<li>在<code>~/.wine/drive_c/windows/Fonts</code>目录中创建两个符号链接： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ln</span> -s /usr/share/fonts/windows/simsun.ttc simsun.ttc</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ln</span> -s /usr/share/fonts/windows/simsun.ttc simfang.ttc</span></span><br></pre></td></tr></table></figure></li>
-<li>修改<code>~/.wine/system.reg</code></li>
-</ol>
-<ul>
-<li>查找<code>LogPixels</code>，找到的行内容应该是：<code>[System\\CurrentControlSet\\Hardware Profiles\\Current\\Software\\Fonts]</code><br>  将其中的<code>&quot;LogPixels&quot;=dword:00000060</code>改为：<code>&quot;LogPixels&quot;=dword:00000070</code></li>
-<li>查找<code>FontSubstitutes</code>，找到的行应该是：<code>[Software\\Microsoft\\Windows NT\\CurrentVersion\\FontSubstitutes]</code><br> 将其中的：<code>&quot;MS Shell Dlg&quot;=&quot;Tahoma&quot; &quot;MS Shell Dlg 2″=&quot;Tahoma&quot;</code>改为：<code>&quot;MS Shell Dlg&quot;=&quot;SimSun&quot; &quot;MS Shell Dlg 2″=&quot;SimSun&quot;</code></li>
-</ul>
-<ol start="5">
-<li>修改<code>~/.wine/drive_c/windows/win.ini</code><br> 在末尾添加如下内容： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[Desktop]</span><br><span class="line">menufontsize=13</span><br><span class="line">messagefontsize=13</span><br><span class="line">statusfontsize=13</span><br><span class="line">IconTitleSize=13</span><br></pre></td></tr></table></figure></li>
-<li>把以下代码保存为<code>zh.reg</code>，然后执行<code>regedit zh.reg</code> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">REGEDIT4</span><br><span class="line">[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]</span><br><span class="line">&quot;Arial&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Arial CE,238&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Arial CYR,204&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Arial Greek,161&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Arial TUR,162&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New CE,238&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New CYR,204&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New Greek,161&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New TUR,162&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;FixedSys&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Helv&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Helvetica&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;MS Sans Serif&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;MS Shell Dlg&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;MS Shell Dlg 2&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;System&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Tahoma&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman CE,238&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman CYR,204&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman Greek,161&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman TUR,162&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Tms Rmn&quot;=&quot;simsun&quot;</span><br></pre></td></tr></table></figure></li>
-</ol>
-<hr>
-<h2 id="4-安装QQ"><a href="#4-安装QQ" class="headerlink" title="4. 安装QQ"></a>4. 安装QQ</h2><ol>
-<li>官网下载最新版QQ</li>
-<li>使用wine进行安装： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wine QQ8.9.3.exe</span></span><br></pre></td></tr></table></figure></li>
-<li>运行QQ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wine <span class="variable">$HOME</span>/.wine/drive_c/Program\ Files\ \(x86\)/Tencent/QQ/Bin/QQ.exe</span></span><br></pre></td></tr></table></figure>
- 注意上面的<code>$HOME</code>为自己home目录。</li>
-</ol>
-<hr>
-<h2 id="5-创建桌面图标"><a href="#5-创建桌面图标" class="headerlink" title="5. 创建桌面图标"></a>5. 创建桌面图标</h2><p>创建以下内容的desktop文件：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Version=1.0</span><br><span class="line">Type=Application</span><br><span class="line">Name=Tencent QQ</span><br><span class="line">Icon=$HOME/Pictures/qq.png</span><br><span class="line">Exec=wine $HOME/.wine/drive_c/Program\ Files\ \(x86\)/Tencent/QQ/Bin/QQ.exe</span><br><span class="line">Comment=QQ</span><br><span class="line">Categories=Network;InstantMessaging;</span><br><span class="line">Terminal=false</span><br></pre></td></tr></table></figure>
-<p>注意：上面的<code>$HOME</code>改为自己的home目录路径，<code>Icon</code>的图标需要自己下载并放到本地。</p>
-<p>将上面的文件名保存为<code>QQ.desktop</code>（文件后缀为desktop），修改权限为664，然后<strong>放到：<code>$HOME/.local/share/applications/</code>目录下</strong>，也可以直接将该文件拖到启动栏。</p>
-<hr>
-<h2 id="6-存在的问题"><a href="#6-存在的问题" class="headerlink" title="6. 存在的问题"></a>6. 存在的问题</h2><ol>
-<li>无法保存密码；</li>
-<li>页面部分字体会乱码（变成方框）；</li>
-<li>无法输入中文（fcitx输入法，包括搜狗）：<strong>这一点很蛋疼</strong>，但有的人不会出现。可能解决方案：</li>
-</ol>
-<ul>
-<li>卸载ibus，但亲测卸载ibus会把unity也一同卸载，所以不可行；</li>
-<li>把要输入的文字在其他软件中（如gedit）编写，然后粘贴到聊天框；</li>
-</ul>
-<hr>
-<h2 id="7-参考"><a href="#7-参考" class="headerlink" title="7. 参考"></a>7. 参考</h2><p><span class="exturl" data-url="aHR0cHM6Ly93d3cudWJ1bnR1a3lsaW4uY29tL3VreWxpbi9mb3J1bS5waHA/bW9kPXZpZXd0aHJlYWQmdGlkPTMwNTEx">https://www.ubuntukylin.com/ukylin/forum.php?mod=viewthread&tid=30511<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>wine</tag>
-        <tag>QQ</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Javaer入门Dart</title>
     <url>/2018/12/09/Javaer%E5%85%A5%E9%97%A8Dart/</url>
     <content><![CDATA[<p>如果你是一名Java开发人员，可以通过 <span class="exturl" data-url="aHR0cHM6Ly9jb2RlbGFicy5kZXZlbG9wZXJzLmdvb2dsZS5jb20vY29kZWxhYnMvZnJvbS1qYXZhLXRvLWRhcnQvaW5kZXguaHRtbCMw">codelabs<i class="fa fa-external-link-alt"></i></span> 快速入门Dart。</p>
@@ -399,9 +198,210 @@
         <category>Dart</category>
       </categories>
       <tags>
-        <tag>Android</tag>
         <tag>Dart</tag>
         <tag>Flutter</tag>
+        <tag>Android</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu16.04安装VMWare Workstation</title>
+    <url>/2018/03/07/Ubuntu16.04%E5%AE%89%E8%A3%85VMWare%20Workstation/</url>
+    <content><![CDATA[<h2 id="一、安装过程"><a href="#一、安装过程" class="headerlink" title="一、安装过程"></a>一、安装过程</h2><h3 id="1-安装开发工具"><a href="#1-安装开发工具" class="headerlink" title="1. 安装开发工具"></a>1. 安装开发工具</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install build-essential</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-下载"><a href="#2-下载" class="headerlink" title="2. 下载"></a>2. 下载</h3><p>从VMWare的官网<span class="exturl" data-url="aHR0cDovL3d3dy52bXdhcmUuY29tL2dvL3RyeXdvcmtzdGF0aW9uLWxpbnV4LTY0">http://www.vmware.com/go/tryworkstation-linux-64<i class="fa fa-external-link-alt"></i></span> 下载，文件类型是<code>.bundle</code>。<br>此时下载的版本是Vmware Workstation 14。</p>
+<span id="more"></span>
+
+
+<h3 id="3-安装VMWare"><a href="#3-安装VMWare" class="headerlink" title="3. 安装VMWare"></a>3. 安装VMWare</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chmod</span> a+x VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo ./VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle</span></span><br></pre></td></tr></table></figure>
+<p>执行后会出现VMWare的安装窗口，需要同意协议、选择是否在启动时检查更新等操作，最后安装完成。</p>
+<h3 id="4-启动VMWare"><a href="#4-启动VMWare" class="headerlink" title="4. 启动VMWare"></a>4. 启动VMWare</h3><p>在终端启动，或者在菜单启动</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vmware</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="5-激活密钥"><a href="#5-激活密钥" class="headerlink" title="5. 激活密钥"></a>5. 激活密钥</h3><p>网上找的VMware workstation 14永久激活密钥：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CG54H-D8D0H-H8DHY-C6X7X-N2KG6</span><br><span class="line">ZC3WK-AFXEK-488JP-A7MQX-XL8YF</span><br><span class="line">AC5XK-0ZD4H-088HP-9NQZV-ZG2R4</span><br><span class="line">ZC5XK-A6E0M-080XQ-04ZZG-YF08D</span><br><span class="line">ZY5H0-D3Y8K-M89EZ-AYPEG-MYUA8</span><br><span class="line">FF590-2DX83-M81LZ-XDM7E-MKUT4</span><br><span class="line">FF31K-AHZD1-H8ETZ-8WWEZ-WUUVA</span><br><span class="line">CV7T2-6WY5Q-48EWP-ZXY7X-QGUWD</span><br><span class="line">AALYG-20HVE-WHQ13-67MUP-XVMF3</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-卸载VMWare"><a href="#6-卸载VMWare" class="headerlink" title="6. 卸载VMWare"></a>6. 卸载VMWare</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo vmware-installer --uninstall-product vmware-workstation</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、解决could-not-open-dev-vmmon-no-such-file-or-directory问题"><a href="#二、解决could-not-open-dev-vmmon-no-such-file-or-directory问题" class="headerlink" title="二、解决could not open &#x2F;dev&#x2F;vmmon no such file or directory问题"></a>二、解决could not open &#x2F;dev&#x2F;vmmon no such file or directory问题</h2><h3 id="1-方法1"><a href="#1-方法1" class="headerlink" title="1. 方法1"></a>1. 方法1</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /tmp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">tar -xzvf /usr/lib/vmware/modules/source/vmmon.tar</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> vmmon-only/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">make</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">cp</span> vmmon.ko /lib/modules/4.4.0-116-generic/misc/vmmon.ko</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo modprobe vmmon</span></span><br></pre></td></tr></table></figure>
+<p>如果执行tar解压时候出现：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gzip: stdin: not in gzip format</span><br><span class="line">tar: Child returned status 1</span><br><span class="line">tar: Error is not recoverable: exiting now</span><br></pre></td></tr></table></figure>
+<p>则将上面<code>tar -xzvf /usr/lib/vmware/modules/source/vmmon.tar</code>命令改为：<code>tar xvf /usr/lib/vmware/modules/source/vmmon.tar</code></p>
+<p>执行完上面的步骤之后，启动虚拟机，看是否解决了问题。</p>
+<p><strong>参考：</strong><span class="exturl" data-url="aHR0cHM6Ly9jb21tdW5pdGllcy52bXdhcmUuY29tL21lc3NhZ2UvMjQ0Mjc4Mw==">https://communities.vmware.com/message/2442783<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="2-方法2"><a href="#2-方法2" class="headerlink" title="2. 方法2"></a>2. 方法2</h3><p>可能出现的原因和gcc版本有关，所以查看自己gcc的版本：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gcc --version</span></span><br><span class="line">gcc (Ubuntu 5.4.0-6ubuntu1~16.04.9) 5.4.0 20160609</span><br><span class="line">Copyright (C) 2015 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source for copying conditions. There is NO</span><br><span class="line">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
+<p>如果gcc版本太低，例如4.5（4.6及以上应该没问题），则安装新版本的gcc，例如：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install gcc-5</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">rm</span> /usr/bin/gcc</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">ln</span> -s /usr/bin/gcc-5 /usr/bin/gcc</span></span><br></pre></td></tr></table></figure>
+
+<p>确认更新gcc版本之后，执行：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo vmware-modconfig --console --install-all</span></span><br></pre></td></tr></table></figure>
+<p>如果最后出现以下结果则表示成功。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Starting VMware services:</span><br><span class="line">   Virtual machine monitor                  done</span><br><span class="line">   Virtual machine communication interface  done</span><br><span class="line">   VM communication interface socket family done</span><br><span class="line">   Blocking file system                     done</span><br><span class="line">   Virtual ethernet                         done</span><br><span class="line">   VMware Authentication Daemon             done</span><br><span class="line">   Shared Memory Available                  done</span><br></pre></td></tr></table></figure>
+<p>如果最后执行结果中出现了如下的failed，则<strong>关闭BIOS中的secure boot</strong>，然后再执行：<code>sudo vmware-modconfig --console --install-all</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Starting VMware services:</span><br><span class="line">   Virtual machine monitor                  failed</span><br><span class="line">   Virtual machine communication interface  done</span><br><span class="line">   VM communication interface socket family done</span><br><span class="line">   Blocking file system                     done</span><br><span class="line">   Virtual ethernet                         failed</span><br><span class="line">   VMware Authentication Daemon             done</span><br><span class="line">   Shared Memory Available                  done</span><br></pre></td></tr></table></figure>
+
+<p><strong>参考：</strong><span class="exturl" data-url="aHR0cHM6Ly9jb21tdW5pdGllcy52bXdhcmUuY29tL21lc3NhZ2UvMjYxMTUxNyMyNjExNTE3">https://communities.vmware.com/message/2611517#2611517<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>VMWare Workstation</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu搭载Android开发环境（无需翻墙）</title>
+    <url>/2017/11/27/Ubuntu%E6%90%AD%E8%BD%BDAndroid%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%88%E6%97%A0%E9%9C%80%E7%BF%BB%E5%A2%99%EF%BC%89/</url>
+    <content><![CDATA[<h2 id="一、相关下载的地址"><a href="#一、相关下载的地址" class="headerlink" title="一、相关下载的地址"></a>一、相关下载的地址</h2><ol>
+<li>sdk下载</li>
+</ol>
+<ul>
+<li>郑州大学：<span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLnp6dS5lZHUuY24vYW5kcm9pZC9yZXBvc2l0b3J5Lw==">https://mirrors.zzu.edu.cn/android/repository/<i class="fa fa-external-link-alt"></i></span></li>
+<li>大连东软信息学院：<span class="exturl" data-url="aHR0cDovL21pcnJvcnMubmV1c29mdC5lZHUuY24vYW5kcm9pZC9yZXBvc2l0b3J5Lw==">http://mirrors.neusoft.edu.cn/android/repository/<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<ol start="2">
+<li>Android studio</li>
+</ol>
+<ul>
+<li>Android Studio 中文社区(官网)：<span class="exturl" data-url="aHR0cDovL3d3dy5hbmRyb2lkLXN0dWRpby5vcmcv">http://www.android-studio.org/<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<span id="more"></span>
+
+
+<hr>
+<h2 id="二、下载SDK相关包"><a href="#二、下载SDK相关包" class="headerlink" title="二、下载SDK相关包"></a>二、下载SDK相关包</h2><p>新建SDK目录，SDK的目录下面用<code>$SDK</code>表示：</p>
+<ol>
+<li>在<code>$SDK</code>下新建**<code>build-tools</code>、<code>tools</code>、<code>platform-tools</code>、<code>platforms</code>**四个文件夹。</li>
+<li>下载**<code>build-tools</code>**</li>
+</ol>
+<ul>
+<li>找到对应的平台，例如linux、macosx、windows等</li>
+<li>解压下载的zip包，解压后得到<code>android-6.0</code>或<code>23.0.1</code>，<strong>放到<code>$SDK/build-tools/</code>目录下</strong></li>
+</ul>
+<ol start="3">
+<li>下载**<code>sdk tools</code>**</li>
+</ol>
+<ul>
+<li>找到对应的平台，例如linux、macosx、windows等</li>
+<li>解压下载的zip包，解压后得到<code>tools</code>，<strong>直接放到<code>$SDK/</code>目录下</strong></li>
+</ul>
+<ol start="4">
+<li>下载**<code>platform-tools</code>**</li>
+</ol>
+<ul>
+<li>找到对应的平台，例如linux、macosx、windows等</li>
+<li>解压下载的zip包，解压后得到<code>platform-tools</code>，<strong>直接放到<code>$SDK/</code>目录下</strong></li>
+</ul>
+<ol start="5">
+<li>下载**<code>sdk</code>**</li>
+</ol>
+<ul>
+<li>找到对应API的zip包，例如<code>android-23_r02.zip</code>（23_r03之前名字）或<code>platform-23_r03.zip</code>（23_r03及之后的名字），不分平台</li>
+<li>解压下载的zip包，解压后得到<code>android-6.0</code>，<strong>放到<code>$SDK/platforms/</code>目录下</strong></li>
+</ul>
+<hr>
+<h2 id="三、安装Android-Studio"><a href="#三、安装Android-Studio" class="headerlink" title="三、安装Android Studio"></a>三、安装Android Studio</h2><ol>
+<li>解压Android Studio的压缩包，Studio的目录下面用<code>$STUDIO</code>表示</li>
+<li>cd到<code>$STUDIO/bin</code>目录，通过<code>./studio.sh</code>启动Studio</li>
+</ol>
+<ul>
+<li>如果启动Studio的时出现<code>Unable to access android sdk add-on list</code>的问题，在<code>$STUDIO/bin/idea.properties</code>文件末尾添加：<code>disable.android.first.run=true</code>即可。</li>
+</ul>
+<ol start="3">
+<li>进入Studio。</li>
+</ol>
+<hr>
+<h2 id="四、其他问题"><a href="#四、其他问题" class="headerlink" title="四、其他问题"></a>四、其他问题</h2><p>说明：Studio的log文件在用户目录下<code>$HOME/.AndroidStudio2.3/system/log</code>中，其中目录可能因为Studio的版本不同而名字不同，例如<code>.AndroidStudioPreview3.1</code>。有问题均可查看该日志文件。</p>
+<ol>
+<li><code>Error:Failed to find target with hash string &#39;android-26&#39; in $SDK</code>的问题<br> 这个问题很可能是因为<code>compileSdkVersion</code>设置为26，也就是<code>platforms</code>目录下缺少Android8.0（API 26）。下载API 26并解压到<code>platforms</code>目录下即可。</li>
+<li><code>Error:Failed to find Build Tools revision 27.0.1</code><br> 缺少build-tools 27.0.1的版本，下载对应的zip包，解压到<code>build-tools</code>即可</li>
+</ol>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>Android</tag>
+        <tag>Ubuntu</tag>
+        <tag>开发环境</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>wine安装最新版QQ</title>
+    <url>/2017/11/26/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/</url>
+    <content><![CDATA[<p><strong>注意：无需继续使用该方法在 Linux 上安装 QQ 了，官方已经正式支持 LinuxQQ：<span class="exturl" data-url="aHR0cHM6Ly9pbS5xcS5jb20vbGludXhxcS9pbmRleC5zaHRtbA==">QQ Linux版下载<i class="fa fa-external-link-alt"></i></span></strong></p>
+<span id="more"></span>
+
+
+<h2 id="1-安装wine"><a href="#1-安装wine" class="headerlink" title="1. 安装wine"></a>1. 安装wine</h2><p>本次教程只需要安装最新版本的wine，并不需要<code>winetricks</code>、<code>wine-mono</code>、<code>wine-gecko</code>等其他插件，目前经实际测试发现只运行WineQQ可以不需要<code>wine-mono</code>、<code>wine-gecko</code>、<code>W2KSP4.exe</code>、<code>InstMsiW.exe</code>等。</p>
+<p>安装wine步骤如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo dpkg --add-architecture i386</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget https://dl.winehq.org/wine-builds/Release.key</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-key add Release.key</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get update</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get install --install-recommends winehq-stable</span></span><br></pre></td></tr></table></figure>
+
+<p>至此wine安装完成，可以通过<code>wine --version</code>查看版本号（此时安装的是wine2.0.3）。</p>
+<p>接下来需要执行<code>winecfg</code>来配置wine，接着会弹出安装<code>wine-mono</code>和<code>wine-gecko</code>的窗口，可以不用安装，关掉即可。</p>
+<hr>
+<h2 id="2-配置wine"><a href="#2-配置wine" class="headerlink" title="2. 配置wine"></a>2. 配置wine</h2><ol>
+<li>执行<code>winecfg</code>打开wine的配置窗口</li>
+<li>点击<code>Libraries</code><br><br> <img src="/images/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/winecfg%E9%85%8D%E7%BD%AE.png" alt="winecfg配置"></li>
+<li>在<code>New override for library</code>中分别输入<code>*ntoskrnl.exe</code>、<code>*riched20</code>、<code>*txplatform.exe</code>，然后回车（名字前的<code>*</code>号可以省略）。</li>
+<li>在<code>Existing_overrides</code>新出现的<code>*ntoskrnl.exe</code>和<code>*txplatform.exe</code>，分别点击<code>Edit</code>，均选择<code>Disable</code>；<code>*riched20</code>点击<code>Edit</code>，选择<code>native then builtin</code></li>
+</ol>
+<ul>
+<li>如果不配置riched20的话则安装好QQ后无法输入用户名</li>
+<li>不停用txplatform.exe则WineQQ无法完整退出，导致关掉重开后提示QQ文件被占用</li>
+<li>禁用ntoskrnl.exe是为了规避可能出现QQ无法启动的bug。</li>
+</ul>
+<hr>
+<h2 id="3-解决乱码问题"><a href="#3-解决乱码问题" class="headerlink" title="3. 解决乱码问题"></a>3. 解决乱码问题</h2><ol>
+<li>初始配置<br> 运行<code>winecfg</code>，在<code>Applications</code>标签下把模拟的windows系统设置为windows xp</li>
+<li>准备字体<br> 把Windows目录下的字体<code>simsun.ttc</code>复制到<code>/usr/share/fonts/windows</code>里面</li>
+<li>在<code>~/.wine/drive_c/windows/Fonts</code>目录中创建两个符号链接： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ln</span> -s /usr/share/fonts/windows/simsun.ttc simsun.ttc</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ln</span> -s /usr/share/fonts/windows/simsun.ttc simfang.ttc</span></span><br></pre></td></tr></table></figure></li>
+<li>修改<code>~/.wine/system.reg</code></li>
+</ol>
+<ul>
+<li>查找<code>LogPixels</code>，找到的行内容应该是：<code>[System\\CurrentControlSet\\Hardware Profiles\\Current\\Software\\Fonts]</code><br>  将其中的<code>&quot;LogPixels&quot;=dword:00000060</code>改为：<code>&quot;LogPixels&quot;=dword:00000070</code></li>
+<li>查找<code>FontSubstitutes</code>，找到的行应该是：<code>[Software\\Microsoft\\Windows NT\\CurrentVersion\\FontSubstitutes]</code><br> 将其中的：<code>&quot;MS Shell Dlg&quot;=&quot;Tahoma&quot; &quot;MS Shell Dlg 2″=&quot;Tahoma&quot;</code>改为：<code>&quot;MS Shell Dlg&quot;=&quot;SimSun&quot; &quot;MS Shell Dlg 2″=&quot;SimSun&quot;</code></li>
+</ul>
+<ol start="5">
+<li>修改<code>~/.wine/drive_c/windows/win.ini</code><br> 在末尾添加如下内容： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[Desktop]</span><br><span class="line">menufontsize=13</span><br><span class="line">messagefontsize=13</span><br><span class="line">statusfontsize=13</span><br><span class="line">IconTitleSize=13</span><br></pre></td></tr></table></figure></li>
+<li>把以下代码保存为<code>zh.reg</code>，然后执行<code>regedit zh.reg</code> <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">REGEDIT4</span><br><span class="line">[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]</span><br><span class="line">&quot;Arial&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Arial CE,238&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Arial CYR,204&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Arial Greek,161&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Arial TUR,162&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New CE,238&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New CYR,204&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New Greek,161&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New TUR,162&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;FixedSys&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Helv&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Helvetica&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;MS Sans Serif&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;MS Shell Dlg&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;MS Shell Dlg 2&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;System&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Tahoma&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman CE,238&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman CYR,204&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman Greek,161&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman TUR,162&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Tms Rmn&quot;=&quot;simsun&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h2 id="4-安装QQ"><a href="#4-安装QQ" class="headerlink" title="4. 安装QQ"></a>4. 安装QQ</h2><ol>
+<li>官网下载最新版QQ</li>
+<li>使用wine进行安装： <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wine QQ8.9.3.exe</span></span><br></pre></td></tr></table></figure></li>
+<li>运行QQ <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wine <span class="variable">$HOME</span>/.wine/drive_c/Program\ Files\ \(x86\)/Tencent/QQ/Bin/QQ.exe</span></span><br></pre></td></tr></table></figure>
+ 注意上面的<code>$HOME</code>为自己home目录。</li>
+</ol>
+<hr>
+<h2 id="5-创建桌面图标"><a href="#5-创建桌面图标" class="headerlink" title="5. 创建桌面图标"></a>5. 创建桌面图标</h2><p>创建以下内容的desktop文件：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Version=1.0</span><br><span class="line">Type=Application</span><br><span class="line">Name=Tencent QQ</span><br><span class="line">Icon=$HOME/Pictures/qq.png</span><br><span class="line">Exec=wine $HOME/.wine/drive_c/Program\ Files\ \(x86\)/Tencent/QQ/Bin/QQ.exe</span><br><span class="line">Comment=QQ</span><br><span class="line">Categories=Network;InstantMessaging;</span><br><span class="line">Terminal=false</span><br></pre></td></tr></table></figure>
+<p>注意：上面的<code>$HOME</code>改为自己的home目录路径，<code>Icon</code>的图标需要自己下载并放到本地。</p>
+<p>将上面的文件名保存为<code>QQ.desktop</code>（文件后缀为desktop），修改权限为664，然后<strong>放到：<code>$HOME/.local/share/applications/</code>目录下</strong>，也可以直接将该文件拖到启动栏。</p>
+<hr>
+<h2 id="6-存在的问题"><a href="#6-存在的问题" class="headerlink" title="6. 存在的问题"></a>6. 存在的问题</h2><ol>
+<li>无法保存密码；</li>
+<li>页面部分字体会乱码（变成方框）；</li>
+<li>无法输入中文（fcitx输入法，包括搜狗）：<strong>这一点很蛋疼</strong>，但有的人不会出现。可能解决方案：</li>
+</ol>
+<ul>
+<li>卸载ibus，但亲测卸载ibus会把unity也一同卸载，所以不可行；</li>
+<li>把要输入的文字在其他软件中（如gedit）编写，然后粘贴到聊天框；</li>
+</ul>
+<hr>
+<h2 id="7-参考"><a href="#7-参考" class="headerlink" title="7. 参考"></a>7. 参考</h2><p><span class="exturl" data-url="aHR0cHM6Ly93d3cudWJ1bnR1a3lsaW4uY29tL3VreWxpbi9mb3J1bS5waHA/bW9kPXZpZXd0aHJlYWQmdGlkPTMwNTEx">https://www.ubuntukylin.com/ukylin/forum.php?mod=viewthread&tid=30511<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>wine</tag>
+        <tag>QQ</tag>
       </tags>
   </entry>
 </search>

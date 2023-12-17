@@ -74,6 +74,27 @@
 
   
   <url>
+    <loc>https://yaodev.site/tags/Dart/</loc>
+    <lastmod>2023-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yaodev.site/tags/Flutter/</loc>
+    <lastmod>2023-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yaodev.site/tags/Android/</loc>
+    <lastmod>2023-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://yaodev.site/tags/Ubuntu/</loc>
     <lastmod>2023-12-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -82,13 +103,6 @@
   
   <url>
     <loc>https://yaodev.site/tags/VMWare-Workstation/</loc>
-    <lastmod>2023-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yaodev.site/tags/Android/</loc>
     <lastmod>2023-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -115,31 +129,17 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://yaodev.site/tags/Dart/</loc>
-    <lastmod>2023-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yaodev.site/tags/Flutter/</loc>
-    <lastmod>2023-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 
   
   <url>
-    <loc>https://yaodev.site/categories/Ubuntu/</loc>
+    <loc>https://yaodev.site/categories/Dart/</loc>
     <lastmod>2023-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://yaodev.site/categories/Dart/</loc>
+    <loc>https://yaodev.site/categories/Ubuntu/</loc>
     <lastmod>2023-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
