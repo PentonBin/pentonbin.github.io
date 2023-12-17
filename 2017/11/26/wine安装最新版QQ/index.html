@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"pentonbin.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="1. 安装wine本次教程只需要安装最新版本的wine，并不需要winetricks、wine-mono、wine-gecko等其他插件，目前经实际测试发现只运行WineQQ可以不需要wine-mono、wine-gecko、W2KSP4.exe、InstMsiW.exe等。 安装wine步骤如下： 123456$ sudo dpkg --add-architecture i386$ wget h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="wine安装最新版QQ">
+<meta property="og:url" content="https://pentonbin.github.io/2017/11/26/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/index.html">
+<meta property="og:site_name" content="yao&#39;s blog">
+<meta property="og:description" content="1. 安装wine本次教程只需要安装最新版本的wine，并不需要winetricks、wine-mono、wine-gecko等其他插件，目前经实际测试发现只运行WineQQ可以不需要wine-mono、wine-gecko、W2KSP4.exe、InstMsiW.exe等。 安装wine步骤如下： 123456$ sudo dpkg --add-architecture i386$ wget h">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pentonbin.github.io/images/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/winecfg%E9%85%8D%E7%BD%AE.png">
+<meta property="article:published_time" content="2017-11-26T11:27:00.000Z">
+<meta property="article:modified_time" content="2023-12-16T16:22:42.015Z">
+<meta property="article:author" content="pentonbin">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="wine">
+<meta property="article:tag" content="QQ">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pentonbin.github.io/images/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/winecfg%E9%85%8D%E7%BD%AE.png">
+
+<link rel="canonical" href="https://pentonbin.github.io/2017/11/26/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>wine安装最新版QQ | yao's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="yao's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">yao's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pentonbin.github.io/2017/11/26/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="pentonbin">
+      <meta itemprop="description" content="小鸡岛搬砖工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yao's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          wine安装最新版QQ
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2017-11-26 19:27:00" itemprop="dateCreated datePublished" datetime="2017-11-26T19:27:00+08:00">2017-11-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-12-17 00:22:42" itemprop="dateModified" datetime="2023-12-17T00:22:42+08:00">2023-12-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Ubuntu/" itemprop="url" rel="index"><span itemprop="name">Ubuntu</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2017/11/26/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/" class="post-meta-item leancloud_visitors" data-flag-title="wine安装最新版QQ" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1-安装wine"><a href="#1-安装wine" class="headerlink" title="1. 安装wine"></a>1. 安装wine</h2><p>本次教程只需要安装最新版本的wine，并不需要<code>winetricks</code>、<code>wine-mono</code>、<code>wine-gecko</code>等其他插件，目前经实际测试发现只运行WineQQ可以不需要<code>wine-mono</code>、<code>wine-gecko</code>、<code>W2KSP4.exe</code>、<code>InstMsiW.exe</code>等。</p>
+<p>安装wine步骤如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo dpkg --add-architecture i386</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget https://dl.winehq.org/wine-builds/Release.key</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-key add Release.key</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get update</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get install --install-recommends winehq-stable</span></span><br></pre></td></tr></table></figure>
+
+<p>至此wine安装完成，可以通过<code>wine --version</code>查看版本号（此时安装的是wine2.0.3）。</p>
+<p>接下来需要执行<code>winecfg</code>来配置wine，接着会弹出安装<code>wine-mono</code>和<code>wine-gecko</code>的窗口，可以不用安装，关掉即可。</p>
+<hr>
+<h2 id="2-配置wine"><a href="#2-配置wine" class="headerlink" title="2. 配置wine"></a>2. 配置wine</h2><ol>
+<li>执行<code>winecfg</code>打开wine的配置窗口</li>
+<li>点击<code>Libraries</code><br><br> <img src="/images/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/winecfg%E9%85%8D%E7%BD%AE.png" alt="winecfg配置"></li>
+<li>在<code>New override for library</code>中分别输入<code>*ntoskrnl.exe</code>、<code>*riched20</code>、<code>*txplatform.exe</code>，然后回车（名字前的<code>*</code>号可以省略）。</li>
+<li>在<code>Existing_overrides</code>新出现的<code>*ntoskrnl.exe</code>和<code>*txplatform.exe</code>，分别点击<code>Edit</code>，均选择<code>Disable</code>；<code>*riched20</code>点击<code>Edit</code>，选择<code>native then builtin</code></li>
+</ol>
+<ul>
+<li>如果不配置riched20的话则安装好QQ后无法输入用户名</li>
+<li>不停用txplatform.exe则WineQQ无法完整退出，导致关掉重开后提示QQ文件被占用</li>
+<li>禁用ntoskrnl.exe是为了规避可能出现QQ无法启动的bug。</li>
+</ul>
+<span id="more"></span>
+
+
+<hr>
+<h2 id="3-解决乱码问题"><a href="#3-解决乱码问题" class="headerlink" title="3. 解决乱码问题"></a>3. 解决乱码问题</h2><ol>
+<li>初始配置<br> 运行<code>winecfg</code>，在<code>Applications</code>标签下把模拟的windows系统设置为windows xp</li>
+<li>准备字体<br> 把Windows目录下的字体<code>simsun.ttc</code>复制到<code>/usr/share/fonts/windows</code>里面</li>
+<li>在<code>~/.wine/drive_c/windows/Fonts</code>目录中创建两个符号链接： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ln</span> -s /usr/share/fonts/windows/simsun.ttc simsun.ttc</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">ln</span> -s /usr/share/fonts/windows/simsun.ttc simfang.ttc</span></span><br></pre></td></tr></table></figure></li>
+<li>修改<code>~/.wine/system.reg</code></li>
+</ol>
+<ul>
+<li>查找<code>LogPixels</code>，找到的行内容应该是：<code>[System\\CurrentControlSet\\Hardware Profiles\\Current\\Software\\Fonts]</code><br>  将其中的<code>&quot;LogPixels&quot;=dword:00000060</code>改为：<code>&quot;LogPixels&quot;=dword:00000070</code></li>
+<li>查找<code>FontSubstitutes</code>，找到的行应该是：<code>[Software\\Microsoft\\Windows NT\\CurrentVersion\\FontSubstitutes]</code><br> 将其中的：<code>&quot;MS Shell Dlg&quot;=&quot;Tahoma&quot; &quot;MS Shell Dlg 2″=&quot;Tahoma&quot;</code>改为：<code>&quot;MS Shell Dlg&quot;=&quot;SimSun&quot; &quot;MS Shell Dlg 2″=&quot;SimSun&quot;</code></li>
+</ul>
+<ol start="5">
+<li>修改<code>~/.wine/drive_c/windows/win.ini</code><br> 在末尾添加如下内容： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Desktop]</span><br><span class="line">menufontsize=13</span><br><span class="line">messagefontsize=13</span><br><span class="line">statusfontsize=13</span><br><span class="line">IconTitleSize=13</span><br></pre></td></tr></table></figure></li>
+<li>把以下代码保存为<code>zh.reg</code>，然后执行<code>regedit zh.reg</code> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">REGEDIT4</span><br><span class="line">[HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\FontSubstitutes]</span><br><span class="line">&quot;Arial&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Arial CE,238&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Arial CYR,204&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Arial Greek,161&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Arial TUR,162&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New CE,238&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New CYR,204&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New Greek,161&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Courier New TUR,162&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;FixedSys&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Helv&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Helvetica&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;MS Sans Serif&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;MS Shell Dlg&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;MS Shell Dlg 2&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;System&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Tahoma&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman CE,238&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman CYR,204&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman Greek,161&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Times New Roman TUR,162&quot;=&quot;simsun&quot;</span><br><span class="line">&quot;Tms Rmn&quot;=&quot;simsun&quot;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<hr>
+<h2 id="4-安装QQ"><a href="#4-安装QQ" class="headerlink" title="4. 安装QQ"></a>4. 安装QQ</h2><ol>
+<li>官网下载最新版QQ</li>
+<li>使用wine进行安装： <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wine QQ8.9.3.exe</span></span><br></pre></td></tr></table></figure></li>
+<li>运行QQ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wine <span class="variable">$HOME</span>/.wine/drive_c/Program\ Files\ \(x86\)/Tencent/QQ/Bin/QQ.exe</span></span><br></pre></td></tr></table></figure>
+ 注意上面的<code>$HOME</code>为自己home目录。</li>
+</ol>
+<hr>
+<h2 id="5-创建桌面图标"><a href="#5-创建桌面图标" class="headerlink" title="5. 创建桌面图标"></a>5. 创建桌面图标</h2><p>创建以下内容的desktop文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[Desktop Entry]</span><br><span class="line">Version=1.0</span><br><span class="line">Type=Application</span><br><span class="line">Name=Tencent QQ</span><br><span class="line">Icon=$HOME/Pictures/qq.png</span><br><span class="line">Exec=wine $HOME/.wine/drive_c/Program\ Files\ \(x86\)/Tencent/QQ/Bin/QQ.exe</span><br><span class="line">Comment=QQ</span><br><span class="line">Categories=Network;InstantMessaging;</span><br><span class="line">Terminal=false</span><br></pre></td></tr></table></figure>
+<p>注意：上面的<code>$HOME</code>改为自己的home目录路径，<code>Icon</code>的图标需要自己下载并放到本地。</p>
+<p>将上面的文件名保存为<code>QQ.desktop</code>（文件后缀为desktop），修改权限为664，然后<strong>放到：<code>$HOME/.local/share/applications/</code>目录下</strong>，也可以直接将该文件拖到启动栏。</p>
+<hr>
+<h2 id="6-存在的问题"><a href="#6-存在的问题" class="headerlink" title="6. 存在的问题"></a>6. 存在的问题</h2><ol>
+<li>无法保存密码；</li>
+<li>页面部分字体会乱码（变成方框）；</li>
+<li>无法输入中文（fcitx输入法，包括搜狗）：<strong>这一点很蛋疼</strong>，但有的人不会出现。可能解决方案：</li>
+</ol>
+<ul>
+<li>卸载ibus，但亲测卸载ibus会把unity也一同卸载，所以不可行；</li>
+<li>把要输入的文字在其他软件中（如gedit）编写，然后粘贴到聊天框；</li>
+</ul>
+<hr>
+<h2 id="7-参考"><a href="#7-参考" class="headerlink" title="7. 参考"></a>7. 参考</h2><p><a href="https://www.ubuntukylin.com/ukylin/forum.php?mod=viewthread&tid=30511">https://www.ubuntukylin.com/ukylin/forum.php?mod=viewthread&tid=30511</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+              <a href="/tags/wine/" rel="tag"># wine</a>
+              <a href="/tags/QQ/" rel="tag"># QQ</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2017/11/27/Ubuntu%E6%90%AD%E8%BD%BDAndroid%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%88%E6%97%A0%E9%9C%80%E7%BF%BB%E5%A2%99%EF%BC%89/" rel="next" title="Ubuntu搭载Android开发环境（无需翻墙）">
+      Ubuntu搭载Android开发环境（无需翻墙） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85wine"><span class="nav-number">1.</span> <span class="nav-text">1. 安装wine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AEwine"><span class="nav-number">2.</span> <span class="nav-text">2. 配置wine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%A7%A3%E5%86%B3%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">3. 解决乱码问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%AE%89%E8%A3%85QQ"><span class="nav-number">4.</span> <span class="nav-text">4. 安装QQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%88%9B%E5%BB%BA%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87"><span class="nav-number">5.</span> <span class="nav-text">5. 创建桌面图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">6.</span> <span class="nav-text">6. 存在的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%8F%82%E8%80%83"><span class="nav-number">7.</span> <span class="nav-text">7. 参考</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="pentonbin"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">pentonbin</p>
+  <div class="site-description" itemprop="description">小鸡岛搬砖工</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">pentonbin</span>
+</div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"vWuCt1VK8RaJGoJpiDU1rSt3-gzGzoHsz","app_key":"DhnAsyIS7tMX82nYEeS3Xx8B","server_url":null,"security":"flase"};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

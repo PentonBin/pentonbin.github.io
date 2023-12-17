@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"pentonbin.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="如果你是一名Java开发人员，可以通过 codelabs 快速入门Dart。 1. 简介Dart是一门用于Flutter的编程语言，而Flutter是Google开发的移动应用SDK。  阅读本文，你将学习到：  如何编写构造方法 为对象赋值的多种方式 如何 &amp; 何时创建getter和setter 如何处理访问权限 如何创建工厂模式 函数式编程 其他主要的概念  此外，codelabs提供">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javaer入门Dart">
+<meta property="og:url" content="https://pentonbin.github.io/2018/12/09/Javaer%E5%85%A5%E9%97%A8Dart/index.html">
+<meta property="og:site_name" content="yao&#39;s blog">
+<meta property="og:description" content="如果你是一名Java开发人员，可以通过 codelabs 快速入门Dart。 1. 简介Dart是一门用于Flutter的编程语言，而Flutter是Google开发的移动应用SDK。  阅读本文，你将学习到：  如何编写构造方法 为对象赋值的多种方式 如何 &amp; 何时创建getter和setter 如何处理访问权限 如何创建工厂模式 函数式编程 其他主要的概念  此外，codelabs提供">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-12-09T07:25:00.000Z">
+<meta property="article:modified_time" content="2023-12-16T16:22:42.015Z">
+<meta property="article:author" content="pentonbin">
+<meta property="article:tag" content="Dart">
+<meta property="article:tag" content="Flutter">
+<meta property="article:tag" content="Android">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://pentonbin.github.io/2018/12/09/Javaer%E5%85%A5%E9%97%A8Dart/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Javaer入门Dart | yao's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="yao's blog" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">yao's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pentonbin.github.io/2018/12/09/Javaer%E5%85%A5%E9%97%A8Dart/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="pentonbin">
+      <meta itemprop="description" content="小鸡岛搬砖工">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yao's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Javaer入门Dart
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-12-09 15:25:00" itemprop="dateCreated datePublished" datetime="2018-12-09T15:25:00+08:00">2018-12-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-12-17 00:22:42" itemprop="dateModified" datetime="2023-12-17T00:22:42+08:00">2023-12-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Dart/" itemprop="url" rel="index"><span itemprop="name">Dart</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Dart/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2018/12/09/Javaer%E5%85%A5%E9%97%A8Dart/" class="post-meta-item leancloud_visitors" data-flag-title="Javaer入门Dart" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>如果你是一名Java开发人员，可以通过 <a href="https://codelabs.developers.google.com/codelabs/from-java-to-dart/index.html#0">codelabs</a> 快速入门Dart。</p>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>Dart是一门用于Flutter的编程语言，而Flutter是Google开发的移动应用SDK。 </p>
+<p>阅读本文，你将学习到：</p>
+<ul>
+<li>如何编写构造方法</li>
+<li>为对象赋值的多种方式</li>
+<li>如何 &amp; 何时创建getter和setter</li>
+<li>如何处理访问权限</li>
+<li>如何创建工厂模式</li>
+<li>函数式编程</li>
+<li>其他主要的概念</li>
+</ul>
+<p>此外，codelabs提供了 <a href="https://dartpad.dartlang.org/">DartPad</a>  供大家编写Dart代码。</p>
+<h2 id="2-创建一个简单的Dart类"><a href="#2-创建一个简单的Dart类" class="headerlink" title="2. 创建一个简单的Dart类"></a>2. 创建一个简单的Dart类</h2><p>我们以一个简单的<code>Bicycle</code>类来进行学习，<code>Bicycle</code>类包含一些私有的成员变量，以及对应的setter和getter。<br>我们尝试编写<code>Bicycle</code>类然后通过<code>main()</code>方法将<code>Bicycle</code>实例打印到控制台。</p>
+<h3 id="2-1-启动DartPad"><a href="#2-1-启动DartPad" class="headerlink" title="2.1 启动DartPad"></a>2.1 启动DartPad</h3><p>现在可以打开 <a href="https://dartpad.dartlang.org/">DartPad</a> ，一边编写Dart代码。</p>
+<h3 id="2-2-定义Bicycle类"><a href="#2-2-定义Bicycle类" class="headerlink" title="2.2 定义Bicycle类"></a>2.2 定义Bicycle类</h3><p>在DartPad定义一个<code>Bicycle</code>类，其中包含三个成员变量：<code>cadence</code>、<code>speed</code>和<code>gear</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Bicycle &#123;</span><br><span class="line">  int cadence;</span><br><span class="line">  int speed;</span><br><span class="line">  int gear;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main() &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<p>在上面的代码中，我们定义了<code>Bicycle</code>类，以及一个<code>main()</code>方法，代码相对比较简单。其中有一些Dart和Java的区别需要留意：</p>
+<table>
+<thead>
+<tr>
+<th>区别</th>
+<th>Dart</th>
+<th>Java</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>main()</code>方法</td>
+<td>1. 不带参数则定义为<code>void main()</code>，带参数定义为<code>void main(List&lt;String&gt; args)</code> <br>2. <strong>必须在最外层</strong>，位于类外部</td>
+<td>1. 定义为<code>public static void main(String[] args)</code> <br>2. 位于类内部</td>
+</tr>
+<tr>
+<td>方法、变量定义</td>
+<td>能够位于类外</td>
+<td>面向对象语言，所有变量、方法必须位于类内部</td>
+</tr>
+<tr>
+<td>访问类型</td>
+<td>不支持private、public、protected修饰词，全部类、成员变量和方法默认定义为public</td>
+<td>通过修饰词private、public、protected修饰</td>
+</tr>
+<tr>
+<td>类成员私有化</td>
+<td>成员命名以下划线开始（下一节将学习到）</td>
+<td>通过private修饰</td>
+</tr>
+<tr>
+<td>缩进</td>
+<td>默认使用两个空格</td>
+<td>默认使用四个空格</td>
+</tr>
+</tbody></table>
+<h3 id="2-3-定义构造方法"><a href="#2-3-定义构造方法" class="headerlink" title="2.3 定义构造方法"></a>2.3 定义构造方法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bicycle(this.cadence, this.speed, this.gear);</span><br></pre></td></tr></table></figure>
+
+<p>上面代码便是Dart的构造方法，初次阅读会觉得比较奇怪，但是在Dart：</p>
+<ol>
+<li>构造方法没有函数体是<strong>允许</strong>的！</li>
+<li>如果没函数体的构造方法行末尾漏了分号<code>;</code>，DartPad会提示：<code>A function body must be provided.</code></li>
+<li>在构造方法的参数列表中使用this，是Dart为实例变量赋值的一种快捷方式。也即是等同于以下代码，大家记住可以这么用就可以了。 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Bicycle(int cadence, int speed, int gear) &#123;</span><br><span class="line">  this.cadence = cadence;</span><br><span class="line">  this.speed = speed;</span><br><span class="line">  this.gear = gear;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2-4-实例化并打印"><a href="#2-4-实例化并打印" class="headerlink" title="2.4 实例化并打印"></a>2.4 实例化并打印</h3><p>在我们的<code>main()</code>方法中添加实例化的代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line">  var bike1 = new Bicycle(2, 1, 0); // ①</span><br><span class="line">  Bicycle bike2 = new Bicycle(2, 0, 1); // ②</span><br><span class="line">  var bike3 = Bicycle(2, 0, 1); // ③</span><br><span class="line">  final bike4 = Bicycle(2, 0, 1); // ④</span><br><span class="line"></span><br><span class="line">  print(bike1)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上四种实例化方式都是允许的，其中：第二种方式指明类型会加快编译速度，第一种并没有指明类型；在Dart 2之后new可以省略（也就是第三种方式）；如果明确<code>bike4</code>是不变的则可以使用final代替var（第四种方式）。<br><code>print()</code>就如同Java中的<code>System.out.print()</code>，这里打印结果是<code>Instance of &#39;Bicycle&#39;</code>，如果想要打印具体的信息，需要重写<code>toString()</code>方法（思想与Java一致）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@override</span><br><span class="line">String toString() =&gt; &#x27;Bicycle: $speed mph&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>这里的重写代码也是有点独特：</p>
+<ol>
+<li><code>@overrid</code>同Java一致，表明这是重写类方法，Java中字母o是大写</li>
+<li>字符串支持单引号或双引号进行表示</li>
+<li>如果要在字符串中插入表达式，则可以使用 <code>$&#123;表达式&#125;</code>，如果是插入成员变量值，可以直接使用 <code>$成员变量</code></li>
+<li>上面包含了一个<code>=&gt;</code>，该符号表示，<strong>当方法的实现只有一行代码的时候可以使用<code>=&gt;</code>简写</strong>。</li>
+</ol>
+<h3 id="2-5-添加只读成员变量"><a href="#2-5-添加只读成员变量" class="headerlink" title="2.5 添加只读成员变量"></a>2.5 添加只读成员变量</h3><p>并不是所有类成员变量都是对外开放的，有时可能会需要一些私有的成员变量，例如将<code>Bicycle</code>的<code>speed</code>属性定义为私有的，在Java的实现方式便是：</p>
+<ol>
+<li>将speed成员变量使用private修饰；</li>
+<li>提供speed的getter方法；</li>
+</ol>
+<p>而Dart并没有访问修饰词（默认都是public），那如何表示私有化呢？答案是<strong>命名使用下划线</strong>，如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int _speed = 0;</span><br><span class="line">## getter</span><br><span class="line">int get speed =&gt; _speed;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ol>
+<li>未初始化的成员变量默认值都为<code>null</code>，即使是表示数值的变量</li>
+<li>Dart编译器会把以下划线开头的成员变量认定为私有private</li>
+<li>默认地，Dart为所有public的成员变量隐式提供了对应的setter和getter方法，我们不需要特地去编写对应的setter和getter，除非将变量强制为只读 or 只写，或者在getter or setter中添加额外的操作等。</li>
+<li>因为默认成员变量为public，例如<code>Bicycle</code>类的<code>cadence</code>和<code>gear</code>，所以直接通过<code>bike.cadence</code>和<code>bike.gear</code>进行访问</li>
+</ol>
+<p>最后，将speed定义为私有后的<code>Bicycle</code>类：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class Bicycle &#123;</span><br><span class="line">  int cadence;</span><br><span class="line">  int _speed = 0;</span><br><span class="line">  int get speed =&gt; _speed;</span><br><span class="line">  int gear;</span><br><span class="line"></span><br><span class="line"> // 构造方法</span><br><span class="line">  Bicycle(this.cadence, this.gear);</span><br><span class="line"></span><br><span class="line">  // 刹车</span><br><span class="line">  void applyBrake(int decrement) &#123;</span><br><span class="line">    _speed -= decrement;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 加速</span><br><span class="line">  void speedUp(int increment) &#123;</span><br><span class="line">    _speed += increment;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @override</span><br><span class="line">  String toString() =&gt; &#x27;Bicycle: $_speed mph&#x27;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main() &#123;</span><br><span class="line">  var bike = Bicycle(2, 1);</span><br><span class="line">  print(bike);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="3-可选命名参数（替代重载）"><a href="#3-可选命名参数（替代重载）" class="headerlink" title="3. 可选命名参数（替代重载）"></a>3. 可选命名参数（替代重载）</h2><p>在Java中，经常会重载方法：也就是编写具有相同函数名，但参数列表不同的多个方法。而Dart<strong>不允许重载</strong>，并通过可选命名参数代替了重载。<br>现在定义一个矩形类<code>Rectangle</code>，包含三个成员变量：<code>origin</code>、<code>width</code>和<code>height</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Rectangle &#123;</span><br><span class="line">  Point origin;</span><br><span class="line">  int width;</span><br><span class="line">  int height;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如何通过可选命名参数来代替重载，我们以构造方法为例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Rectangle(&#123;this.origin = const Point(0, 0), this.width = 0, this.height = 0&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>注意可选命名参数必须包含在花括号中<code>&#123; &#125;</code>，且指定的默认值必须是编译期常量（也就是编译期便可确定值）。又例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 其中x、y为可选命名参数，r不是</span><br><span class="line">void move(int r, &#123;int x = 10, int y = 20&#125;) &#123;</span><br><span class="line">  this.width += x；</span><br><span class="line">  this.height += y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>使用可选命名参数的方法，在调用时<strong>可选命名参数必须指明赋值的局部变量</strong>，而非可选命名参数则不需要：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void main() &#123;</span><br><span class="line">  // origin是可选命名参数，为其赋值必须在前面指明: origin</span><br><span class="line">  // width和height同理</span><br><span class="line">  print(Rectangle(origin: const Point(10, 20), width: 100, height: 200));</span><br><span class="line">  print(Rectangle(origin: const Point(10, 10)));</span><br><span class="line">  print(Rectangle(width: 200));</span><br><span class="line">  print(Rectangle());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-创建工厂模式"><a href="#4-创建工厂模式" class="headerlink" title="4. 创建工厂模式"></a>4. 创建工厂模式</h2><p>这一小节将介绍两种创建Shape的工厂，先介绍一下Shape类：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">import &#x27;dart:math&#x27;;</span><br><span class="line">// 抽象类</span><br><span class="line">abstract class Shape &#123;</span><br><span class="line">  // num表示数据类型是数值，可以为int、float或short等</span><br><span class="line">  // 定义一个获取面积的getter方法</span><br><span class="line">  num get area;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 圆</span><br><span class="line">class Circle implements Shape &#123;</span><br><span class="line">  final num radius;</span><br><span class="line">  Circle(this.radius);</span><br><span class="line">  num get area =&gt; pi * pow(radius, 2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 正方形</span><br><span class="line">class Square implements Shape &#123;</span><br><span class="line">  final num side;</span><br><span class="line">  Square(this.side);</span><br><span class="line">  num get area =&gt; pow(side, 2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main() &#123;</span><br><span class="line">  final circle = Circle(2);</span><br><span class="line">  final square = Square(2);</span><br><span class="line">  print(circle.area);</span><br><span class="line">  print(square.area);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的代码中：</p>
+<ul>
+<li>Dart支持抽象类（abstract）</li>
+<li>在同一个文件中能够定义多个class</li>
+<li>Dart的核心库包括了：<code>dart.math</code>、<code>dart:core</code>、<code>dart:async</code>、<code>dart:convert</code>和<code>dart:collection</code></li>
+<li>在Dart 1.x版本常量均为大写（例如PI），在Dart 2都改为小写（例如pi）</li>
+</ul>
+<p>接下来介绍一下创建工厂模式两种方式。</p>
+<h3 id="4-1-顶层方法"><a href="#4-1-顶层方法" class="headerlink" title="4.1 顶层方法"></a>4.1 顶层方法</h3><p>在<strong>所有类的外部</strong>创建一个工厂方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Shape shapeFactory(String type) &#123;</span><br><span class="line">  if (type == &#x27;circle&#x27;) return Circle(2);</span><br><span class="line">  if (type == &#x27;square&#x27;) return Square(2);</span><br><span class="line">  // 如果参数type不是&#x27;circle&#x27;或&#x27;square&#x27;将会抛出异常</span><br><span class="line">  // 如果想在字符串中添加单引号，可以使用反斜杠\，或整个字符串使用双引号表示</span><br><span class="line">  throw &#x27;Can\&#x27;t create $type.&#x27;; &#125;</span><br><span class="line"></span><br><span class="line">// 前面的main方法就可以改写为：</span><br><span class="line">main() &#123;</span><br><span class="line">  final circle = shapeFactory(&#x27;circle&#x27;);</span><br><span class="line">  final square = shapeFactory(&#x27;square&#x27;);</span><br><span class="line">  print(circle.area);</span><br><span class="line">  print(square.area);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>说明一下：</p>
+<ol>
+<li>Dart同Java一样能够抛出异常，也定义了很多常用的异常类，我们能够继承、使用这些常用的异常类。</li>
+<li>Dart支持通过throw一个字符串表示遇到的异常信息：<code>throw &#39;Occurred NPE&#39;</code></li>
+<li>Dart同样使用try&#x2F;catch来进行异常的捕获：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">try &#123;</span><br><span class="line">  // exception occurred</span><br><span class="line">&#125; catch(err) &#123;</span><br><span class="line">  print(err);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="4-2-工厂构造器"><a href="#4-2-工厂构造器" class="headerlink" title="4.2 工厂构造器"></a>4.2 工厂构造器</h3><p>Dart提供了<code>factory</code>关键字用于创建工厂构造器。下面在<code>Shape</code>的抽象类中添加一个工厂构造器：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">abstract class Shape &#123;</span><br><span class="line">  factory Shape(String type) &#123;</span><br><span class="line">    if (type == &#x27;circle&#x27;) return Circle(2);</span><br><span class="line">    if (type == &#x27;square&#x27;) return Square(2);</span><br><span class="line">    throw &#x27;Can\&#x27;t create $type.&#x27;;</span><br><span class="line">  &#125;</span><br><span class="line">  num get area;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main() &#123;</span><br><span class="line">  // 调用工厂构造器，通过创建Shape对象即可</span><br><span class="line">  final circle = Shape(&#x27;circle&#x27;);</span><br><span class="line">  final square = Shape(&#x27;square&#x27;);</span><br><span class="line">  print(circle.area);</span><br><span class="line">  print(square.area);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="5-实现接口"><a href="#5-实现接口" class="headerlink" title="5. 实现接口"></a>5. 实现接口</h2><p>Dart同样也有接口的思想，但Dart并没有<code>interface</code>的关键字，因为<strong>每个类都被定义为接口</strong>，也就是一个类，既能被当成父类进行继承extends，也能当做接口进行实现implements：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 此时A作为父类被继承</span><br><span class="line">class B extends A &#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 此时A作为接口被实现</span><br><span class="line">class C implements A &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们定义一个<code>CircleMock</code>实现我们上面的<code>Circle</code>类：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class Circle implements Shape &#123;</span><br><span class="line">  final num radius;</span><br><span class="line">  Circle(this.radius);</span><br><span class="line">  num get area =&gt; pi * pow(radius, 2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class CircleMock implements Circle &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此时DartPad会提示编译错误：<code>Error: The non-abstract class &#39;CircleSub&#39; is missing implementations for these members: &#39;radius&#39;, &#39;area&#39;.</code>，编译出错可以这么理解：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// Circle被作为了接口实现</span><br><span class="line">class Circle implements Shape &#123;</span><br><span class="line">  // num radius、num get area被视为接口中的方法，需要被实现</span><br><span class="line">  final num radius;</span><br><span class="line">  num get area =&gt; pi * pow(radius, 2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class CircleMock implements Circle &#123;</span><br><span class="line">  // 可以通过定义相关的成员变量，编译器也不会报错（这里有点莫名其妙啊）</span><br><span class="line">  num area;</span><br><span class="line">  num radius;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="6-函数式编程"><a href="#6-函数式编程" class="headerlink" title="6. 函数式编程"></a>6. 函数式编程</h2><p>在函数式编程中，可以把方法作为为参数、将方法赋值给变量、支持lambda表达式。<br>Dart支持函数式编程，所以也支持以上提到的特点，此外，Dart中<strong>方法也是一个对象，且具有对应的类型Function</strong>，因此Dart中可以将方法赋值给变量或传递给参数。</p>
+<h3 id="6-1-类实例作为方法调用"><a href="#6-1-类实例作为方法调用" class="headerlink" title="6.1 类实例作为方法调用"></a>6.1 类实例作为方法调用</h3><p>Dart还可以将类实例作为方法一样调用（但该类必须包含<code>call()</code>方法），例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class WannabeFunction &#123;</span><br><span class="line">  // call方法返回值为void，省略了void</span><br><span class="line">  call(String a, String b, String c) =&gt; &#x27;$a $b $c!&#x27;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">main() &#123;</span><br><span class="line">  var wf = new WannabeFunction();</span><br><span class="line">  // 将WannabeFunction类的实例wf作为方法一样调用，此时调用的是WannabeFunction类中的call方法</span><br><span class="line">  var out = wf(&quot;Hi&quot;,&quot;there,&quot;,&quot;gang&quot;);</span><br><span class="line">  print(&#x27;$out&#x27;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-2-命令式代码（非功能性）"><a href="#6-2-命令式代码（非功能性）" class="headerlink" title="6.2 命令式代码（非功能性）"></a>6.2 命令式代码（非功能性）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">String scream(int length) =&gt; &quot;A$&#123;&#x27;a&#x27; * length&#125;h!&quot;;</span><br><span class="line"></span><br><span class="line">main() &#123;</span><br><span class="line">  final values = [1, 2, 3, 5, 10, 50];</span><br><span class="line">  for (var length in values) &#123;</span><br><span class="line">    print(scream(length));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>打印的结果是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Aah!</span><br><span class="line">Aaah!</span><br><span class="line">Aaaah!</span><br><span class="line">Aaaaaah!</span><br><span class="line">Aaaaaaaaaaah!</span><br><span class="line">Aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah!</span><br></pre></td></tr></table></figure>
+
+<p>上面使用了字符串插值器<code>A$&#123;&#39;a&#39; * length&#125;h!</code>，表示将<code>a</code>字母重复<code>length</code>次。</p>
+<h3 id="6-3-将命令式代码转化为功能性代码"><a href="#6-3-将命令式代码转化为功能性代码" class="headerlink" title="6.3 将命令式代码转化为功能性代码"></a>6.3 将命令式代码转化为功能性代码</h3><p>我们将上面的代码的<code>for()&#123; &#125;</code>循环使用方法链的形式进行替换：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">String scream(int length) =&gt; &quot;A$&#123;&#x27;a&#x27; * length&#125;h!&quot;;</span><br><span class="line"></span><br><span class="line">main() &#123;</span><br><span class="line">  final values = [1, 2, 3, 5, 10, 50];</span><br><span class="line">   // for (var length in values) &#123;</span><br><span class="line">     // print(scream(length));</span><br><span class="line">   // &#125;</span><br><span class="line">   values.map(scream).forEach(print); // 下面解释该行代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上面的代码挺难理解的，可以这么理解：</p>
+<ol>
+<li><code>map</code>可以理解为一个迭代器，<code>values.map()</code>便是对<code>values</code>中的数值进行迭代，迭代所做的操作就交由<code>map()</code>方法的参数，这里传入的就是<code>scream</code>，也就是<code>scream()</code>方法，用Java代码表示便是： <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// for相当于map，进行迭代</span><br><span class="line">for (int val : values) &#123;</span><br><span class="line">    // map()的参数便是对迭代进行的操作</span><br><span class="line">    // 这里便是调用scream()方法，因为函数式编程中方法可以作为参数进行传递</span><br><span class="line">    scream(val);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><code>forEach()</code>可以理解为对处理结果进行的最后操作，例如打印（传入<code>print</code>方法）。<code>forEach()</code>这个在Java 8也已支持。</li>
+<li>综上，<code>values.map(scream).forEach(print);</code>这行代码意思便是，对<code>values</code>进行遍历，对其中每一个值进行<code>scream()</code>处理，然后调用<code>print()</code>进行处理后的最后操作。</li>
+</ol>
+<h3 id="6-4-集合的新功能点"><a href="#6-4-集合的新功能点" class="headerlink" title="6.4 集合的新功能点"></a>6.4 集合的新功能点</h3><p>Dart在<code>dart:collection</code>库中还包含了一些迭代的新功能点，例如<code>fold</code>、<code>where</code>、<code>join</code>和<code>skip</code>等：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// values.map(scream).forEach(print);</span><br><span class="line">values.skip(1).take(3).map(scream).forEach(print);</span><br></pre></td></tr></table></figure>
+
+<p>打印的结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Aaah!</span><br><span class="line">Aaaah!</span><br><span class="line">Aaaaaah!</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ul>
+<li><code>skip(1)</code>表示遍历<code>values</code>时跳过第一个</li>
+<li><code>take(3)</code>表示遍历时，获取接下来的三个值，剩下的值忽略掉</li>
+<li><code>map()</code>和<code>forEach()</code>如上面解释，进行遍历和处理</li>
+</ul>
+<h2 id="7-写在最后"><a href="#7-写在最后" class="headerlink" title="7. 写在最后"></a>7. 写在最后</h2><p>以上是关于Java和Dart的一些区别，只要会Java上手Dart应该还是比较简单的。但上面也只讲了一小部分内容，尚未包括异步&#x2F;同步、方法级联、Null操作。<br>当然，笔者个人觉得，并不需要要完全学习完Dart才能上手Flutter，学习一下基本的Dart，在Flutter中一边摸索中一边学习Dart应该是最合适的。<br>codelabs上面还提供了一些学习的链接：<br>文章：</p>
+<ul>
+<li><a href="https://hackernoon.com/why-flutter-uses-dart-dd635a054ebf">Why Flutter Uses Dart</a></li>
+<li><a href="https://medium.com/dartlang/announcing-dart-2-80ba01f43b6">Announcing Dart 2: Optimized for Client-Side Development</a></li>
+<li><a href="https://hackernoon.com/why-i-moved-from-java-to-dart-8f3802b1d652">Why I moved from Java to Dart</a></li>
+</ul>
+<p>资源：</p>
+<ul>
+<li><a href="https://www.dartlang.org/guides/language/language-tour">A Tour of the Dart Language</a></li>
+<li><a href="https://www.dartlang.org/guides/libraries/library-tour">A Tour of the Dart Libraries</a></li>
+<li><a href="https://www.dartlang.org/guides/language/effective-dart">Effective Dart</a></li>
+</ul>
+<p>网页：</p>
+<ul>
+<li>Dart Language: <a href="https://www.dartlang.org/">www.dartlang.org</a></li>
+<li>Dart for the web, including AngularDart: <a href="https://webdev.dartlang.org/">webdev.dartlang.org</a></li>
+<li>Flutter mobile app SDK: <a href="https://flutter.io/">flutter.io</a></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Dart/" rel="tag"># Dart</a>
+              <a href="/tags/Flutter/" rel="tag"># Flutter</a>
+              <a href="/tags/Android/" rel="tag"># Android</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2018/03/07/Ubuntu16.04%E5%AE%89%E8%A3%85VMWare%20Workstation/" rel="prev" title="Ubuntu16.04安装VMWare Workstation">
+      <i class="fa fa-chevron-left"></i> Ubuntu16.04安装VMWare Workstation
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">1. 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84Dart%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">2. 创建一个简单的Dart类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%90%AF%E5%8A%A8DartPad"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 启动DartPad</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%AE%9A%E4%B9%89Bicycle%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 定义Bicycle类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E5%AE%9A%E4%B9%89%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 定义构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%B9%B6%E6%89%93%E5%8D%B0"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 实例化并打印</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E6%B7%BB%E5%8A%A0%E5%8F%AA%E8%AF%BB%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 添加只读成员变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%8F%AF%E9%80%89%E5%91%BD%E5%90%8D%E5%8F%82%E6%95%B0%EF%BC%88%E6%9B%BF%E4%BB%A3%E9%87%8D%E8%BD%BD%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">3. 可选命名参数（替代重载）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%88%9B%E5%BB%BA%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">4. 创建工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E9%A1%B6%E5%B1%82%E6%96%B9%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 顶层方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E5%B7%A5%E5%8E%82%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 工厂构造器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3"><span class="nav-number">5.</span> <span class="nav-text">5. 实现接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="nav-number">6.</span> <span class="nav-text">6. 函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E7%B1%BB%E5%AE%9E%E4%BE%8B%E4%BD%9C%E4%B8%BA%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 类实例作为方法调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-%E5%91%BD%E4%BB%A4%E5%BC%8F%E4%BB%A3%E7%A0%81%EF%BC%88%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%EF%BC%89"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 命令式代码（非功能性）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-%E5%B0%86%E5%91%BD%E4%BB%A4%E5%BC%8F%E4%BB%A3%E7%A0%81%E8%BD%AC%E5%8C%96%E4%B8%BA%E5%8A%9F%E8%83%BD%E6%80%A7%E4%BB%A3%E7%A0%81"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 将命令式代码转化为功能性代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-%E9%9B%86%E5%90%88%E7%9A%84%E6%96%B0%E5%8A%9F%E8%83%BD%E7%82%B9"><span class="nav-number">6.4.</span> <span class="nav-text">6.4 集合的新功能点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">7.</span> <span class="nav-text">7. 写在最后</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="pentonbin"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">pentonbin</p>
+  <div class="site-description" itemprop="description">小鸡岛搬砖工</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2017 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">pentonbin</span>
+</div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
+              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
+            
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"vWuCt1VK8RaJGoJpiDU1rSt3-gzGzoHsz","app_key":"DhnAsyIS7tMX82nYEeS3Xx8B","server_url":null,"security":"flase"};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
