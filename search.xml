@@ -3,7 +3,7 @@
   <entry>
     <title>Javaer入门Dart</title>
     <url>/2018/12/09/Javaer%E5%85%A5%E9%97%A8Dart/</url>
-    <content><![CDATA[<p>如果你是一名Java开发人员，可以通过 <a href="https://codelabs.developers.google.com/codelabs/from-java-to-dart/index.html#0">codelabs</a> 快速入门Dart。</p>
+    <content><![CDATA[<p>如果你是一名Java开发人员，可以通过 <span class="exturl" data-url="aHR0cHM6Ly9jb2RlbGFicy5kZXZlbG9wZXJzLmdvb2dsZS5jb20vY29kZWxhYnMvZnJvbS1qYXZhLXRvLWRhcnQvaW5kZXguaHRtbCMw">codelabs<i class="fa fa-external-link-alt"></i></span> 快速入门Dart。</p>
 <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>Dart是一门用于Flutter的编程语言，而Flutter是Google开发的移动应用SDK。 </p>
 <p>阅读本文，你将学习到：</p>
 <ul>
@@ -15,12 +15,12 @@
 <li>函数式编程</li>
 <li>其他主要的概念</li>
 </ul>
-<p>此外，codelabs提供了 <a href="https://dartpad.dartlang.org/">DartPad</a>  供大家编写Dart代码。</p>
+<p>此外，codelabs提供了 <span class="exturl" data-url="aHR0cHM6Ly9kYXJ0cGFkLmRhcnRsYW5nLm9yZy8=">DartPad<i class="fa fa-external-link-alt"></i></span>  供大家编写Dart代码。</p>
 <span id="more"></span>
 
 
 <h2 id="2-创建一个简单的Dart类"><a href="#2-创建一个简单的Dart类" class="headerlink" title="2. 创建一个简单的Dart类"></a>2. 创建一个简单的Dart类</h2><p>我们以一个简单的<code>Bicycle</code>类来进行学习，<code>Bicycle</code>类包含一些私有的成员变量，以及对应的setter和getter。<br>我们尝试编写<code>Bicycle</code>类然后通过<code>main()</code>方法将<code>Bicycle</code>实例打印到控制台。</p>
-<h3 id="2-1-启动DartPad"><a href="#2-1-启动DartPad" class="headerlink" title="2.1 启动DartPad"></a>2.1 启动DartPad</h3><p>现在可以打开 <a href="https://dartpad.dartlang.org/">DartPad</a> ，一边编写Dart代码。</p>
+<h3 id="2-1-启动DartPad"><a href="#2-1-启动DartPad" class="headerlink" title="2.1 启动DartPad"></a>2.1 启动DartPad</h3><p>现在可以打开 <span class="exturl" data-url="aHR0cHM6Ly9kYXJ0cGFkLmRhcnRsYW5nLm9yZy8=">DartPad<i class="fa fa-external-link-alt"></i></span> ，一边编写Dart代码。</p>
 <h3 id="2-2-定义Bicycle类"><a href="#2-2-定义Bicycle类" class="headerlink" title="2.2 定义Bicycle类"></a>2.2 定义Bicycle类</h3><p>在DartPad定义一个<code>Bicycle</code>类，其中包含三个成员变量：<code>cadence</code>、<code>speed</code>和<code>gear</code>。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">class Bicycle &#123;</span><br><span class="line">  int cadence;</span><br><span class="line">  int speed;</span><br><span class="line">  int gear;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main() &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -177,21 +177,21 @@
 </ul>
 <h2 id="7-写在最后"><a href="#7-写在最后" class="headerlink" title="7. 写在最后"></a>7. 写在最后</h2><p>以上是关于Java和Dart的一些区别，只要会Java上手Dart应该还是比较简单的。但上面也只讲了一小部分内容，尚未包括异步&#x2F;同步、方法级联、Null操作。<br>当然，笔者个人觉得，并不需要要完全学习完Dart才能上手Flutter，学习一下基本的Dart，在Flutter中一边摸索中一边学习Dart应该是最合适的。<br>codelabs上面还提供了一些学习的链接：<br>文章：</p>
 <ul>
-<li><a href="https://hackernoon.com/why-flutter-uses-dart-dd635a054ebf">Why Flutter Uses Dart</a></li>
-<li><a href="https://medium.com/dartlang/announcing-dart-2-80ba01f43b6">Announcing Dart 2: Optimized for Client-Side Development</a></li>
-<li><a href="https://hackernoon.com/why-i-moved-from-java-to-dart-8f3802b1d652">Why I moved from Java to Dart</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9oYWNrZXJub29uLmNvbS93aHktZmx1dHRlci11c2VzLWRhcnQtZGQ2MzVhMDU0ZWJm">Why Flutter Uses Dart<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL2RhcnRsYW5nL2Fubm91bmNpbmctZGFydC0yLTgwYmEwMWY0M2I2">Announcing Dart 2: Optimized for Client-Side Development<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9oYWNrZXJub29uLmNvbS93aHktaS1tb3ZlZC1mcm9tLWphdmEtdG8tZGFydC04ZjM4MDJiMWQ2NTI=">Why I moved from Java to Dart<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <p>资源：</p>
 <ul>
-<li><a href="https://www.dartlang.org/guides/language/language-tour">A Tour of the Dart Language</a></li>
-<li><a href="https://www.dartlang.org/guides/libraries/library-tour">A Tour of the Dart Libraries</a></li>
-<li><a href="https://www.dartlang.org/guides/language/effective-dart">Effective Dart</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZGFydGxhbmcub3JnL2d1aWRlcy9sYW5ndWFnZS9sYW5ndWFnZS10b3Vy">A Tour of the Dart Language<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZGFydGxhbmcub3JnL2d1aWRlcy9saWJyYXJpZXMvbGlicmFyeS10b3Vy">A Tour of the Dart Libraries<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZGFydGxhbmcub3JnL2d1aWRlcy9sYW5ndWFnZS9lZmZlY3RpdmUtZGFydA==">Effective Dart<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <p>网页：</p>
 <ul>
-<li>Dart Language: <a href="https://www.dartlang.org/">www.dartlang.org</a></li>
-<li>Dart for the web, including AngularDart: <a href="https://webdev.dartlang.org/">webdev.dartlang.org</a></li>
-<li>Flutter mobile app SDK: <a href="https://flutter.io/">flutter.io</a></li>
+<li>Dart Language: <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGFydGxhbmcub3JnLw==">www.dartlang.org<i class="fa fa-external-link-alt"></i></span></li>
+<li>Dart for the web, including AngularDart: <span class="exturl" data-url="aHR0cHM6Ly93ZWJkZXYuZGFydGxhbmcub3JnLw==">webdev.dartlang.org<i class="fa fa-external-link-alt"></i></span></li>
+<li>Flutter mobile app SDK: <span class="exturl" data-url="aHR0cHM6Ly9mbHV0dGVyLmlvLw==">flutter.io<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 ]]></content>
       <categories>
@@ -204,69 +204,20 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu16.04安装VMWare Workstation</title>
-    <url>/2018/03/07/Ubuntu16.04%E5%AE%89%E8%A3%85VMWare%20Workstation/</url>
-    <content><![CDATA[<h2 id="一、安装过程"><a href="#一、安装过程" class="headerlink" title="一、安装过程"></a>一、安装过程</h2><h3 id="1-安装开发工具"><a href="#1-安装开发工具" class="headerlink" title="1. 安装开发工具"></a>1. 安装开发工具</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install build-essential</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-下载"><a href="#2-下载" class="headerlink" title="2. 下载"></a>2. 下载</h3><p>从VMWare的官网<a href="http://www.vmware.com/go/tryworkstation-linux-64">http://www.vmware.com/go/tryworkstation-linux-64</a> 下载，文件类型是<code>.bundle</code>。<br>此时下载的版本是Vmware Workstation 14。</p>
-<span id="more"></span>
-
-
-<h3 id="3-安装VMWare"><a href="#3-安装VMWare" class="headerlink" title="3. 安装VMWare"></a>3. 安装VMWare</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chmod</span> a+x VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo ./VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle</span></span><br></pre></td></tr></table></figure>
-<p>执行后会出现VMWare的安装窗口，需要同意协议、选择是否在启动时检查更新等操作，最后安装完成。</p>
-<h3 id="4-启动VMWare"><a href="#4-启动VMWare" class="headerlink" title="4. 启动VMWare"></a>4. 启动VMWare</h3><p>在终端启动，或者在菜单启动</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vmware</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="5-激活密钥"><a href="#5-激活密钥" class="headerlink" title="5. 激活密钥"></a>5. 激活密钥</h3><p>网上找的VMware workstation 14永久激活密钥：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CG54H-D8D0H-H8DHY-C6X7X-N2KG6</span><br><span class="line">ZC3WK-AFXEK-488JP-A7MQX-XL8YF</span><br><span class="line">AC5XK-0ZD4H-088HP-9NQZV-ZG2R4</span><br><span class="line">ZC5XK-A6E0M-080XQ-04ZZG-YF08D</span><br><span class="line">ZY5H0-D3Y8K-M89EZ-AYPEG-MYUA8</span><br><span class="line">FF590-2DX83-M81LZ-XDM7E-MKUT4</span><br><span class="line">FF31K-AHZD1-H8ETZ-8WWEZ-WUUVA</span><br><span class="line">CV7T2-6WY5Q-48EWP-ZXY7X-QGUWD</span><br><span class="line">AALYG-20HVE-WHQ13-67MUP-XVMF3</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-卸载VMWare"><a href="#6-卸载VMWare" class="headerlink" title="6. 卸载VMWare"></a>6. 卸载VMWare</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo vmware-installer --uninstall-product vmware-workstation</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="二、解决could-not-open-dev-vmmon-no-such-file-or-directory问题"><a href="#二、解决could-not-open-dev-vmmon-no-such-file-or-directory问题" class="headerlink" title="二、解决could not open &#x2F;dev&#x2F;vmmon no such file or directory问题"></a>二、解决could not open &#x2F;dev&#x2F;vmmon no such file or directory问题</h2><h3 id="1-方法1"><a href="#1-方法1" class="headerlink" title="1. 方法1"></a>1. 方法1</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /tmp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">tar -xzvf /usr/lib/vmware/modules/source/vmmon.tar</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> vmmon-only/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">make</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">cp</span> vmmon.ko /lib/modules/4.4.0-116-generic/misc/vmmon.ko</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo modprobe vmmon</span></span><br></pre></td></tr></table></figure>
-<p>如果执行tar解压时候出现：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gzip: stdin: not in gzip format</span><br><span class="line">tar: Child returned status 1</span><br><span class="line">tar: Error is not recoverable: exiting now</span><br></pre></td></tr></table></figure>
-<p>则将上面<code>tar -xzvf /usr/lib/vmware/modules/source/vmmon.tar</code>命令改为：<code>tar xvf /usr/lib/vmware/modules/source/vmmon.tar</code></p>
-<p>执行完上面的步骤之后，启动虚拟机，看是否解决了问题。</p>
-<p><strong>参考：</strong><a href="https://communities.vmware.com/message/2442783">https://communities.vmware.com/message/2442783</a></p>
-<h3 id="2-方法2"><a href="#2-方法2" class="headerlink" title="2. 方法2"></a>2. 方法2</h3><p>可能出现的原因和gcc版本有关，所以查看自己gcc的版本：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gcc --version</span></span><br><span class="line">gcc (Ubuntu 5.4.0-6ubuntu1~16.04.9) 5.4.0 20160609</span><br><span class="line">Copyright (C) 2015 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source for copying conditions. There is NO</span><br><span class="line">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
-<p>如果gcc版本太低，例如4.5（4.6及以上应该没问题），则安装新版本的gcc，例如：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install gcc-5</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">rm</span> /usr/bin/gcc</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">ln</span> -s /usr/bin/gcc-5 /usr/bin/gcc</span></span><br></pre></td></tr></table></figure>
-
-<p>确认更新gcc版本之后，执行：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo vmware-modconfig --console --install-all</span></span><br></pre></td></tr></table></figure>
-<p>如果最后出现以下结果则表示成功。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Starting VMware services:</span><br><span class="line">   Virtual machine monitor                  done</span><br><span class="line">   Virtual machine communication interface  done</span><br><span class="line">   VM communication interface socket family done</span><br><span class="line">   Blocking file system                     done</span><br><span class="line">   Virtual ethernet                         done</span><br><span class="line">   VMware Authentication Daemon             done</span><br><span class="line">   Shared Memory Available                  done</span><br></pre></td></tr></table></figure>
-<p>如果最后执行结果中出现了如下的failed，则<strong>关闭BIOS中的secure boot</strong>，然后再执行：<code>sudo vmware-modconfig --console --install-all</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Starting VMware services:</span><br><span class="line">   Virtual machine monitor                  failed</span><br><span class="line">   Virtual machine communication interface  done</span><br><span class="line">   VM communication interface socket family done</span><br><span class="line">   Blocking file system                     done</span><br><span class="line">   Virtual ethernet                         failed</span><br><span class="line">   VMware Authentication Daemon             done</span><br><span class="line">   Shared Memory Available                  done</span><br></pre></td></tr></table></figure>
-
-<p><strong>参考：</strong><a href="https://communities.vmware.com/message/2611517#2611517">https://communities.vmware.com/message/2611517#2611517</a></p>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>VMWare Workstation</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu搭载Android开发环境（无需翻墙）</title>
     <url>/2017/11/27/Ubuntu%E6%90%AD%E8%BD%BDAndroid%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%88%E6%97%A0%E9%9C%80%E7%BF%BB%E5%A2%99%EF%BC%89/</url>
     <content><![CDATA[<h2 id="一、相关下载的地址"><a href="#一、相关下载的地址" class="headerlink" title="一、相关下载的地址"></a>一、相关下载的地址</h2><ol>
 <li>sdk下载</li>
 </ol>
 <ul>
-<li>郑州大学：<a href="https://mirrors.zzu.edu.cn/android/repository/">https://mirrors.zzu.edu.cn/android/repository/</a></li>
-<li>大连东软信息学院：<a href="http://mirrors.neusoft.edu.cn/android/repository/">http://mirrors.neusoft.edu.cn/android/repository/</a></li>
+<li>郑州大学：<span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLnp6dS5lZHUuY24vYW5kcm9pZC9yZXBvc2l0b3J5Lw==">https://mirrors.zzu.edu.cn/android/repository/<i class="fa fa-external-link-alt"></i></span></li>
+<li>大连东软信息学院：<span class="exturl" data-url="aHR0cDovL21pcnJvcnMubmV1c29mdC5lZHUuY24vYW5kcm9pZC9yZXBvc2l0b3J5Lw==">http://mirrors.neusoft.edu.cn/android/repository/<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <ol start="2">
 <li>Android studio</li>
 </ol>
 <ul>
-<li>Android Studio 中文社区(官网)：<a href="http://www.android-studio.org/">http://www.android-studio.org/</a></li>
+<li>Android Studio 中文社区(官网)：<span class="exturl" data-url="aHR0cDovL3d3dy5hbmRyb2lkLXN0dWRpby5vcmcv">http://www.android-studio.org/<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <span id="more"></span>
 
@@ -331,9 +282,58 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu16.04安装VMWare Workstation</title>
+    <url>/2018/03/07/Ubuntu16.04%E5%AE%89%E8%A3%85VMWare%20Workstation/</url>
+    <content><![CDATA[<h2 id="一、安装过程"><a href="#一、安装过程" class="headerlink" title="一、安装过程"></a>一、安装过程</h2><h3 id="1-安装开发工具"><a href="#1-安装开发工具" class="headerlink" title="1. 安装开发工具"></a>1. 安装开发工具</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install build-essential</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-下载"><a href="#2-下载" class="headerlink" title="2. 下载"></a>2. 下载</h3><p>从VMWare的官网<span class="exturl" data-url="aHR0cDovL3d3dy52bXdhcmUuY29tL2dvL3RyeXdvcmtzdGF0aW9uLWxpbnV4LTY0">http://www.vmware.com/go/tryworkstation-linux-64<i class="fa fa-external-link-alt"></i></span> 下载，文件类型是<code>.bundle</code>。<br>此时下载的版本是Vmware Workstation 14。</p>
+<span id="more"></span>
+
+
+<h3 id="3-安装VMWare"><a href="#3-安装VMWare" class="headerlink" title="3. 安装VMWare"></a>3. 安装VMWare</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chmod</span> a+x VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo ./VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle</span></span><br></pre></td></tr></table></figure>
+<p>执行后会出现VMWare的安装窗口，需要同意协议、选择是否在启动时检查更新等操作，最后安装完成。</p>
+<h3 id="4-启动VMWare"><a href="#4-启动VMWare" class="headerlink" title="4. 启动VMWare"></a>4. 启动VMWare</h3><p>在终端启动，或者在菜单启动</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vmware</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="5-激活密钥"><a href="#5-激活密钥" class="headerlink" title="5. 激活密钥"></a>5. 激活密钥</h3><p>网上找的VMware workstation 14永久激活密钥：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CG54H-D8D0H-H8DHY-C6X7X-N2KG6</span><br><span class="line">ZC3WK-AFXEK-488JP-A7MQX-XL8YF</span><br><span class="line">AC5XK-0ZD4H-088HP-9NQZV-ZG2R4</span><br><span class="line">ZC5XK-A6E0M-080XQ-04ZZG-YF08D</span><br><span class="line">ZY5H0-D3Y8K-M89EZ-AYPEG-MYUA8</span><br><span class="line">FF590-2DX83-M81LZ-XDM7E-MKUT4</span><br><span class="line">FF31K-AHZD1-H8ETZ-8WWEZ-WUUVA</span><br><span class="line">CV7T2-6WY5Q-48EWP-ZXY7X-QGUWD</span><br><span class="line">AALYG-20HVE-WHQ13-67MUP-XVMF3</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-卸载VMWare"><a href="#6-卸载VMWare" class="headerlink" title="6. 卸载VMWare"></a>6. 卸载VMWare</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo vmware-installer --uninstall-product vmware-workstation</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、解决could-not-open-dev-vmmon-no-such-file-or-directory问题"><a href="#二、解决could-not-open-dev-vmmon-no-such-file-or-directory问题" class="headerlink" title="二、解决could not open &#x2F;dev&#x2F;vmmon no such file or directory问题"></a>二、解决could not open &#x2F;dev&#x2F;vmmon no such file or directory问题</h2><h3 id="1-方法1"><a href="#1-方法1" class="headerlink" title="1. 方法1"></a>1. 方法1</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /tmp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">tar -xzvf /usr/lib/vmware/modules/source/vmmon.tar</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> vmmon-only/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">make</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">cp</span> vmmon.ko /lib/modules/4.4.0-116-generic/misc/vmmon.ko</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo modprobe vmmon</span></span><br></pre></td></tr></table></figure>
+<p>如果执行tar解压时候出现：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gzip: stdin: not in gzip format</span><br><span class="line">tar: Child returned status 1</span><br><span class="line">tar: Error is not recoverable: exiting now</span><br></pre></td></tr></table></figure>
+<p>则将上面<code>tar -xzvf /usr/lib/vmware/modules/source/vmmon.tar</code>命令改为：<code>tar xvf /usr/lib/vmware/modules/source/vmmon.tar</code></p>
+<p>执行完上面的步骤之后，启动虚拟机，看是否解决了问题。</p>
+<p><strong>参考：</strong><span class="exturl" data-url="aHR0cHM6Ly9jb21tdW5pdGllcy52bXdhcmUuY29tL21lc3NhZ2UvMjQ0Mjc4Mw==">https://communities.vmware.com/message/2442783<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="2-方法2"><a href="#2-方法2" class="headerlink" title="2. 方法2"></a>2. 方法2</h3><p>可能出现的原因和gcc版本有关，所以查看自己gcc的版本：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gcc --version</span></span><br><span class="line">gcc (Ubuntu 5.4.0-6ubuntu1~16.04.9) 5.4.0 20160609</span><br><span class="line">Copyright (C) 2015 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source for copying conditions. There is NO</span><br><span class="line">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
+<p>如果gcc版本太低，例如4.5（4.6及以上应该没问题），则安装新版本的gcc，例如：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install gcc-5</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">rm</span> /usr/bin/gcc</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">ln</span> -s /usr/bin/gcc-5 /usr/bin/gcc</span></span><br></pre></td></tr></table></figure>
+
+<p>确认更新gcc版本之后，执行：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo vmware-modconfig --console --install-all</span></span><br></pre></td></tr></table></figure>
+<p>如果最后出现以下结果则表示成功。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Starting VMware services:</span><br><span class="line">   Virtual machine monitor                  done</span><br><span class="line">   Virtual machine communication interface  done</span><br><span class="line">   VM communication interface socket family done</span><br><span class="line">   Blocking file system                     done</span><br><span class="line">   Virtual ethernet                         done</span><br><span class="line">   VMware Authentication Daemon             done</span><br><span class="line">   Shared Memory Available                  done</span><br></pre></td></tr></table></figure>
+<p>如果最后执行结果中出现了如下的failed，则<strong>关闭BIOS中的secure boot</strong>，然后再执行：<code>sudo vmware-modconfig --console --install-all</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Starting VMware services:</span><br><span class="line">   Virtual machine monitor                  failed</span><br><span class="line">   Virtual machine communication interface  done</span><br><span class="line">   VM communication interface socket family done</span><br><span class="line">   Blocking file system                     done</span><br><span class="line">   Virtual ethernet                         failed</span><br><span class="line">   VMware Authentication Daemon             done</span><br><span class="line">   Shared Memory Available                  done</span><br></pre></td></tr></table></figure>
+
+<p><strong>参考：</strong><span class="exturl" data-url="aHR0cHM6Ly9jb21tdW5pdGllcy52bXdhcmUuY29tL21lc3NhZ2UvMjYxMTUxNyMyNjExNTE3">https://communities.vmware.com/message/2611517#2611517<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>VMWare Workstation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>wine安装最新版QQ</title>
     <url>/2017/11/26/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/</url>
-    <content><![CDATA[<p><strong>注意：无需继续使用该方法在 Linux 上安装 QQ 了，官方已经正式支持 LinuxQQ：<a href="https://im.qq.com/linuxqq/index.shtml">QQ Linux版下载</a></strong></p>
+    <content><![CDATA[<p><strong>注意：无需继续使用该方法在 Linux 上安装 QQ 了，官方已经正式支持 LinuxQQ：<span class="exturl" data-url="aHR0cHM6Ly9pbS5xcS5jb20vbGludXhxcS9pbmRleC5zaHRtbA==">QQ Linux版下载<i class="fa fa-external-link-alt"></i></span></strong></p>
 <span id="more"></span>
 
 
@@ -393,7 +393,7 @@
 <li>把要输入的文字在其他软件中（如gedit）编写，然后粘贴到聊天框；</li>
 </ul>
 <hr>
-<h2 id="7-参考"><a href="#7-参考" class="headerlink" title="7. 参考"></a>7. 参考</h2><p><a href="https://www.ubuntukylin.com/ukylin/forum.php?mod=viewthread&tid=30511">https://www.ubuntukylin.com/ukylin/forum.php?mod=viewthread&tid=30511</a></p>
+<h2 id="7-参考"><a href="#7-参考" class="headerlink" title="7. 参考"></a>7. 参考</h2><p><span class="exturl" data-url="aHR0cHM6Ly93d3cudWJ1bnR1a3lsaW4uY29tL3VreWxpbi9mb3J1bS5waHA/bW9kPXZpZXd0aHJlYWQmdGlkPTMwNTEx">https://www.ubuntukylin.com/ukylin/forum.php?mod=viewthread&tid=30511<i class="fa fa-external-link-alt"></i></span></p>
 ]]></content>
       <categories>
         <category>Ubuntu</category>

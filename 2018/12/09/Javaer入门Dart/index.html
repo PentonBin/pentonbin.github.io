@@ -9,15 +9,17 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="//fonts.lug.ustc.edu.cn/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"pentonbin.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"pentonbin.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="如果你是一名Java开发人员，可以通过 codelabs 快速入门Dart。 1. 简介Dart是一门用于Flutter的编程语言，而Flutter是Google开发的移动应用SDK。  阅读本文，你将学习到：  如何编写构造方法 为对象赋值的多种方式 如何 &amp; 何时创建getter和setter 如何处理访问权限 如何创建工厂模式 函数式编程 其他主要的概念  此外，codelabs提供">
@@ -187,6 +189,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -244,13 +247,6 @@
             </span>
 
           
-            <span id="/2018/12/09/Javaer%E5%85%A5%E9%97%A8Dart/" class="post-meta-item leancloud_visitors" data-flag-title="Javaer入门Dart" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
 
         </div>
       </header>
@@ -261,7 +257,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>如果你是一名Java开发人员，可以通过 <a href="https://codelabs.developers.google.com/codelabs/from-java-to-dart/index.html#0">codelabs</a> 快速入门Dart。</p>
+        <p>如果你是一名Java开发人员，可以通过 <span class="exturl" data-url="aHR0cHM6Ly9jb2RlbGFicy5kZXZlbG9wZXJzLmdvb2dsZS5jb20vY29kZWxhYnMvZnJvbS1qYXZhLXRvLWRhcnQvaW5kZXguaHRtbCMw">codelabs<i class="fa fa-external-link-alt"></i></span> 快速入门Dart。</p>
 <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1. 简介"></a>1. 简介</h2><p>Dart是一门用于Flutter的编程语言，而Flutter是Google开发的移动应用SDK。 </p>
 <p>阅读本文，你将学习到：</p>
 <ul>
@@ -273,12 +269,12 @@
 <li>函数式编程</li>
 <li>其他主要的概念</li>
 </ul>
-<p>此外，codelabs提供了 <a href="https://dartpad.dartlang.org/">DartPad</a>  供大家编写Dart代码。</p>
+<p>此外，codelabs提供了 <span class="exturl" data-url="aHR0cHM6Ly9kYXJ0cGFkLmRhcnRsYW5nLm9yZy8=">DartPad<i class="fa fa-external-link-alt"></i></span>  供大家编写Dart代码。</p>
 <span id="more"></span>
 
 
 <h2 id="2-创建一个简单的Dart类"><a href="#2-创建一个简单的Dart类" class="headerlink" title="2. 创建一个简单的Dart类"></a>2. 创建一个简单的Dart类</h2><p>我们以一个简单的<code>Bicycle</code>类来进行学习，<code>Bicycle</code>类包含一些私有的成员变量，以及对应的setter和getter。<br>我们尝试编写<code>Bicycle</code>类然后通过<code>main()</code>方法将<code>Bicycle</code>实例打印到控制台。</p>
-<h3 id="2-1-启动DartPad"><a href="#2-1-启动DartPad" class="headerlink" title="2.1 启动DartPad"></a>2.1 启动DartPad</h3><p>现在可以打开 <a href="https://dartpad.dartlang.org/">DartPad</a> ，一边编写Dart代码。</p>
+<h3 id="2-1-启动DartPad"><a href="#2-1-启动DartPad" class="headerlink" title="2.1 启动DartPad"></a>2.1 启动DartPad</h3><p>现在可以打开 <span class="exturl" data-url="aHR0cHM6Ly9kYXJ0cGFkLmRhcnRsYW5nLm9yZy8=">DartPad<i class="fa fa-external-link-alt"></i></span> ，一边编写Dart代码。</p>
 <h3 id="2-2-定义Bicycle类"><a href="#2-2-定义Bicycle类" class="headerlink" title="2.2 定义Bicycle类"></a>2.2 定义Bicycle类</h3><p>在DartPad定义一个<code>Bicycle</code>类，其中包含三个成员变量：<code>cadence</code>、<code>speed</code>和<code>gear</code>。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class Bicycle &#123;</span><br><span class="line">  int cadence;</span><br><span class="line">  int speed;</span><br><span class="line">  int gear;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main() &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -435,21 +431,21 @@
 </ul>
 <h2 id="7-写在最后"><a href="#7-写在最后" class="headerlink" title="7. 写在最后"></a>7. 写在最后</h2><p>以上是关于Java和Dart的一些区别，只要会Java上手Dart应该还是比较简单的。但上面也只讲了一小部分内容，尚未包括异步&#x2F;同步、方法级联、Null操作。<br>当然，笔者个人觉得，并不需要要完全学习完Dart才能上手Flutter，学习一下基本的Dart，在Flutter中一边摸索中一边学习Dart应该是最合适的。<br>codelabs上面还提供了一些学习的链接：<br>文章：</p>
 <ul>
-<li><a href="https://hackernoon.com/why-flutter-uses-dart-dd635a054ebf">Why Flutter Uses Dart</a></li>
-<li><a href="https://medium.com/dartlang/announcing-dart-2-80ba01f43b6">Announcing Dart 2: Optimized for Client-Side Development</a></li>
-<li><a href="https://hackernoon.com/why-i-moved-from-java-to-dart-8f3802b1d652">Why I moved from Java to Dart</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9oYWNrZXJub29uLmNvbS93aHktZmx1dHRlci11c2VzLWRhcnQtZGQ2MzVhMDU0ZWJm">Why Flutter Uses Dart<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL2RhcnRsYW5nL2Fubm91bmNpbmctZGFydC0yLTgwYmEwMWY0M2I2">Announcing Dart 2: Optimized for Client-Side Development<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9oYWNrZXJub29uLmNvbS93aHktaS1tb3ZlZC1mcm9tLWphdmEtdG8tZGFydC04ZjM4MDJiMWQ2NTI=">Why I moved from Java to Dart<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <p>资源：</p>
 <ul>
-<li><a href="https://www.dartlang.org/guides/language/language-tour">A Tour of the Dart Language</a></li>
-<li><a href="https://www.dartlang.org/guides/libraries/library-tour">A Tour of the Dart Libraries</a></li>
-<li><a href="https://www.dartlang.org/guides/language/effective-dart">Effective Dart</a></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZGFydGxhbmcub3JnL2d1aWRlcy9sYW5ndWFnZS9sYW5ndWFnZS10b3Vy">A Tour of the Dart Language<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZGFydGxhbmcub3JnL2d1aWRlcy9saWJyYXJpZXMvbGlicmFyeS10b3Vy">A Tour of the Dart Libraries<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZGFydGxhbmcub3JnL2d1aWRlcy9sYW5ndWFnZS9lZmZlY3RpdmUtZGFydA==">Effective Dart<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 <p>网页：</p>
 <ul>
-<li>Dart Language: <a href="https://www.dartlang.org/">www.dartlang.org</a></li>
-<li>Dart for the web, including AngularDart: <a href="https://webdev.dartlang.org/">webdev.dartlang.org</a></li>
-<li>Flutter mobile app SDK: <a href="https://flutter.io/">flutter.io</a></li>
+<li>Dart Language: <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGFydGxhbmcub3JnLw==">www.dartlang.org<i class="fa fa-external-link-alt"></i></span></li>
+<li>Dart for the web, including AngularDart: <span class="exturl" data-url="aHR0cHM6Ly93ZWJkZXYuZGFydGxhbmcub3JnLw==">webdev.dartlang.org<i class="fa fa-external-link-alt"></i></span></li>
+<li>Flutter mobile app SDK: <span class="exturl" data-url="aHR0cHM6Ly9mbHV0dGVyLmlvLw==">flutter.io<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 
     </div>
@@ -533,7 +529,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="nav-text">1. 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84Dart%E7%B1%BB"><span class="nav-text">2. 创建一个简单的Dart类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%90%AF%E5%8A%A8DartPad"><span class="nav-text">2.1 启动DartPad</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%AE%9A%E4%B9%89Bicycle%E7%B1%BB"><span class="nav-text">2.2 定义Bicycle类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E5%AE%9A%E4%B9%89%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-text">2.3 定义构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%B9%B6%E6%89%93%E5%8D%B0"><span class="nav-text">2.4 实例化并打印</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E6%B7%BB%E5%8A%A0%E5%8F%AA%E8%AF%BB%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F"><span class="nav-text">2.5 添加只读成员变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%8F%AF%E9%80%89%E5%91%BD%E5%90%8D%E5%8F%82%E6%95%B0%EF%BC%88%E6%9B%BF%E4%BB%A3%E9%87%8D%E8%BD%BD%EF%BC%89"><span class="nav-text">3. 可选命名参数（替代重载）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%88%9B%E5%BB%BA%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F"><span class="nav-text">4. 创建工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E9%A1%B6%E5%B1%82%E6%96%B9%E6%B3%95"><span class="nav-text">4.1 顶层方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E5%B7%A5%E5%8E%82%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-text">4.2 工厂构造器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3"><span class="nav-text">5. 实现接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="nav-text">6. 函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E7%B1%BB%E5%AE%9E%E4%BE%8B%E4%BD%9C%E4%B8%BA%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8"><span class="nav-text">6.1 类实例作为方法调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-%E5%91%BD%E4%BB%A4%E5%BC%8F%E4%BB%A3%E7%A0%81%EF%BC%88%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%EF%BC%89"><span class="nav-text">6.2 命令式代码（非功能性）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-%E5%B0%86%E5%91%BD%E4%BB%A4%E5%BC%8F%E4%BB%A3%E7%A0%81%E8%BD%AC%E5%8C%96%E4%B8%BA%E5%8A%9F%E8%83%BD%E6%80%A7%E4%BB%A3%E7%A0%81"><span class="nav-text">6.3 将命令式代码转化为功能性代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-%E9%9B%86%E5%90%88%E7%9A%84%E6%96%B0%E5%8A%9F%E8%83%BD%E7%82%B9"><span class="nav-text">6.4 集合的新功能点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-text">7. 写在最后</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">1. 简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84Dart%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">2. 创建一个简单的Dart类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%90%AF%E5%8A%A8DartPad"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 启动DartPad</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E5%AE%9A%E4%B9%89Bicycle%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 定义Bicycle类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E5%AE%9A%E4%B9%89%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 定义构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%B9%B6%E6%89%93%E5%8D%B0"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 实例化并打印</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-%E6%B7%BB%E5%8A%A0%E5%8F%AA%E8%AF%BB%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 添加只读成员变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%8F%AF%E9%80%89%E5%91%BD%E5%90%8D%E5%8F%82%E6%95%B0%EF%BC%88%E6%9B%BF%E4%BB%A3%E9%87%8D%E8%BD%BD%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">3. 可选命名参数（替代重载）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%88%9B%E5%BB%BA%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">4. 创建工厂模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E9%A1%B6%E5%B1%82%E6%96%B9%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 顶层方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E5%B7%A5%E5%8E%82%E6%9E%84%E9%80%A0%E5%99%A8"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 工厂构造器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3"><span class="nav-number">5.</span> <span class="nav-text">5. 实现接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B"><span class="nav-number">6.</span> <span class="nav-text">6. 函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-%E7%B1%BB%E5%AE%9E%E4%BE%8B%E4%BD%9C%E4%B8%BA%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 类实例作为方法调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-%E5%91%BD%E4%BB%A4%E5%BC%8F%E4%BB%A3%E7%A0%81%EF%BC%88%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%EF%BC%89"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 命令式代码（非功能性）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-3-%E5%B0%86%E5%91%BD%E4%BB%A4%E5%BC%8F%E4%BB%A3%E7%A0%81%E8%BD%AC%E5%8C%96%E4%B8%BA%E5%8A%9F%E8%83%BD%E6%80%A7%E4%BB%A3%E7%A0%81"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 将命令式代码转化为功能性代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-4-%E9%9B%86%E5%90%88%E7%9A%84%E6%96%B0%E5%8A%9F%E8%83%BD%E7%82%B9"><span class="nav-number">6.4.</span> <span class="nav-text">6.4 集合的新功能点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">7.</span> <span class="nav-text">7. 写在最后</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -603,92 +599,6 @@
 
 
 
-<script>
-  (function() {
-    function leancloudSelector(url) {
-      url = encodeURI(url);
-      return document.getElementById(url).querySelector('.leancloud-visitors-count');
-    }
-
-    function addCount(Counter) {
-      var visitors = document.querySelector('.leancloud_visitors');
-      var url = decodeURI(visitors.id);
-      var title = visitors.dataset.flagTitle;
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            var counter = results[0];
-            leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              });
-          } else {
-              leancloudSelector(url).innerText = 'Counter not initialized! More info at console err msg.';
-              console.error('ATTENTION! LeanCloud counter has security bug, see how to solve it here: https://github.com/theme-next/hexo-leancloud-counter-security. \n However, you can still use LeanCloud without security, by setting `security` option to `false`.');
-            
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    function showTime(Counter) {
-      var visitors = document.querySelectorAll('.leancloud_visitors');
-      var entries = [...visitors].map(element => {
-        return decodeURI(element.id);
-      });
-
-      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
-        .then(response => response.json())
-        .then(({ results }) => {
-          for (let url of entries) {
-            let target = results.find(item => item.url === url);
-            leancloudSelector(url).innerText = target ? target.time : 0;
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-
-    let { app_id, app_key, server_url } = {"enable":true,"app_id":"vWuCt1VK8RaJGoJpiDU1rSt3-gzGzoHsz","app_key":"DhnAsyIS7tMX82nYEeS3Xx8B","server_url":null,"security":"flase"};
-    function fetchData(api_server) {
-      var Counter = (method, url, data) => {
-        return fetch(`${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : app_id,
-            'X-LC-Key'    : app_key,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    }
-
-    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
-
-    if (api_server) {
-      fetchData(api_server);
-    } else {
-      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
-        .then(response => response.json())
-        .then(({ api_server }) => {
-          fetchData('https://' + api_server);
-        });
-    }
-  })();
-</script>
 
 
       </div>
@@ -714,6 +624,31 @@
 
 
   
+  <script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  </script>
 
 
 
