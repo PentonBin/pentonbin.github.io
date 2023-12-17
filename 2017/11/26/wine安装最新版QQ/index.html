@@ -17,19 +17,19 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"pentonbin.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"pentonbin.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="1. 安装wine本次教程只需要安装最新版本的wine，并不需要winetricks、wine-mono、wine-gecko等其他插件，目前经实际测试发现只运行WineQQ可以不需要wine-mono、wine-gecko、W2KSP4.exe、InstMsiW.exe等。 安装wine步骤如下： 123456$ sudo dpkg --add-architecture i386$ wget h">
+  <meta name="description" content="注意：无需继续使用该方法在 Linux 上安装 QQ 了，官方已经正式支持 LinuxQQ：QQ Linux版下载">
 <meta property="og:type" content="article">
 <meta property="og:title" content="wine安装最新版QQ">
 <meta property="og:url" content="https://pentonbin.github.io/2017/11/26/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/index.html">
 <meta property="og:site_name" content="yao&#39;s blog">
-<meta property="og:description" content="1. 安装wine本次教程只需要安装最新版本的wine，并不需要winetricks、wine-mono、wine-gecko等其他插件，目前经实际测试发现只运行WineQQ可以不需要wine-mono、wine-gecko、W2KSP4.exe、InstMsiW.exe等。 安装wine步骤如下： 123456$ sudo dpkg --add-architecture i386$ wget h">
+<meta property="og:description" content="注意：无需继续使用该方法在 Linux 上安装 QQ 了，官方已经正式支持 LinuxQQ：QQ Linux版下载">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://pentonbin.github.io/images/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/winecfg%E9%85%8D%E7%BD%AE.png">
 <meta property="article:published_time" content="2017-11-26T11:27:00.000Z">
-<meta property="article:modified_time" content="2023-12-16T16:22:42.015Z">
+<meta property="article:modified_time" content="2023-12-17T03:35:30.418Z">
 <meta property="article:author" content="pentonbin">
 <meta property="article:tag" content="Ubuntu">
 <meta property="article:tag" content="wine">
@@ -113,6 +113,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -147,11 +148,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -205,7 +233,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-12-17 00:22:42" itemprop="dateModified" datetime="2023-12-17T00:22:42+08:00">2023-12-17</time>
+                <time title="修改时间：2023-12-17 11:35:30" itemprop="dateModified" datetime="2023-12-17T11:35:30+08:00">2023-12-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,7 +263,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="1-安装wine"><a href="#1-安装wine" class="headerlink" title="1. 安装wine"></a>1. 安装wine</h2><p>本次教程只需要安装最新版本的wine，并不需要<code>winetricks</code>、<code>wine-mono</code>、<code>wine-gecko</code>等其他插件，目前经实际测试发现只运行WineQQ可以不需要<code>wine-mono</code>、<code>wine-gecko</code>、<code>W2KSP4.exe</code>、<code>InstMsiW.exe</code>等。</p>
+        <p><strong>注意：无需继续使用该方法在 Linux 上安装 QQ 了，官方已经正式支持 LinuxQQ：<a href="https://im.qq.com/linuxqq/index.shtml">QQ Linux版下载</a></strong></p>
+<span id="more"></span>
+
+
+<h2 id="1-安装wine"><a href="#1-安装wine" class="headerlink" title="1. 安装wine"></a>1. 安装wine</h2><p>本次教程只需要安装最新版本的wine，并不需要<code>winetricks</code>、<code>wine-mono</code>、<code>wine-gecko</code>等其他插件，目前经实际测试发现只运行WineQQ可以不需要<code>wine-mono</code>、<code>wine-gecko</code>、<code>W2KSP4.exe</code>、<code>InstMsiW.exe</code>等。</p>
 <p>安装wine步骤如下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo dpkg --add-architecture i386</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">wget https://dl.winehq.org/wine-builds/Release.key</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-key add Release.key</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-add-repository https://dl.winehq.org/wine-builds/ubuntu/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get update</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt-get install --install-recommends winehq-stable</span></span><br></pre></td></tr></table></figure>
 
@@ -253,9 +285,6 @@
 <li>不停用txplatform.exe则WineQQ无法完整退出，导致关掉重开后提示QQ文件被占用</li>
 <li>禁用ntoskrnl.exe是为了规避可能出现QQ无法启动的bug。</li>
 </ul>
-<span id="more"></span>
-
-
 <hr>
 <h2 id="3-解决乱码问题"><a href="#3-解决乱码问题" class="headerlink" title="3. 解决乱码问题"></a>3. 解决乱码问题</h2><ol>
 <li>初始配置<br> 运行<code>winecfg</code>，在<code>Applications</code>标签下把模拟的windows系统设置为windows xp</li>
@@ -377,7 +406,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85wine"><span class="nav-number">1.</span> <span class="nav-text">1. 安装wine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AEwine"><span class="nav-number">2.</span> <span class="nav-text">2. 配置wine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%A7%A3%E5%86%B3%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">3. 解决乱码问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%AE%89%E8%A3%85QQ"><span class="nav-number">4.</span> <span class="nav-text">4. 安装QQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%88%9B%E5%BB%BA%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87"><span class="nav-number">5.</span> <span class="nav-text">5. 创建桌面图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">6.</span> <span class="nav-text">6. 存在的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%8F%82%E8%80%83"><span class="nav-number">7.</span> <span class="nav-text">7. 参考</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85wine"><span class="nav-text">1. 安装wine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AEwine"><span class="nav-text">2. 配置wine</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%A7%A3%E5%86%B3%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98"><span class="nav-text">3. 解决乱码问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%AE%89%E8%A3%85QQ"><span class="nav-text">4. 安装QQ</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%88%9B%E5%BB%BA%E6%A1%8C%E9%9D%A2%E5%9B%BE%E6%A0%87"><span class="nav-text">5. 创建桌面图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">6. 存在的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-%E5%8F%82%E8%80%83"><span class="nav-text">7. 参考</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -400,7 +429,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -552,7 +581,7 @@
 <script src="/js/schemes/pisces.js"></script>
 
 
-<script src="/js/next-boot.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script src="/js/next-boot.js"></script>
 
 
 
@@ -560,6 +589,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
