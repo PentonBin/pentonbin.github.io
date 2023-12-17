@@ -70,11 +70,11 @@
     <category term="Dart" scheme="https://yaodev.site/categories/Dart/"/>
     
     
-    <category term="Android" scheme="https://yaodev.site/tags/Android/"/>
-    
     <category term="Dart" scheme="https://yaodev.site/tags/Dart/"/>
     
     <category term="Flutter" scheme="https://yaodev.site/tags/Flutter/"/>
+    
+    <category term="Android" scheme="https://yaodev.site/tags/Android/"/>
     
   </entry>
   
@@ -134,9 +134,9 @@
     <category term="Android" scheme="https://yaodev.site/categories/Ubuntu/Android/"/>
     
     
-    <category term="Ubuntu" scheme="https://yaodev.site/tags/Ubuntu/"/>
-    
     <category term="Android" scheme="https://yaodev.site/tags/Android/"/>
+    
+    <category term="Ubuntu" scheme="https://yaodev.site/tags/Ubuntu/"/>
     
     <category term="开发环境" scheme="https://yaodev.site/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
     
