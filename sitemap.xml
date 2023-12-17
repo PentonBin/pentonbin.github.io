@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://yaodev.site/categories/index.html</loc>
+    <loc>https://yaodev.site/about/index.html</loc>
     
     <lastmod>2023-12-16</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://yaodev.site/about/index.html</loc>
+    <loc>https://yaodev.site/categories/index.html</loc>
     
     <lastmod>2023-12-16</lastmod>
     
@@ -111,20 +111,6 @@
   </url>
   
   <url>
-    <loc>https://yaodev.site/tags/Encoding/</loc>
-    <lastmod>2023-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yaodev.site/tags/uleb128/</loc>
-    <lastmod>2023-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://yaodev.site/tags/Dart/</loc>
     <lastmod>2023-12-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -133,6 +119,20 @@
   
   <url>
     <loc>https://yaodev.site/tags/Flutter/</loc>
+    <lastmod>2023-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yaodev.site/tags/Encoding/</loc>
+    <lastmod>2023-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yaodev.site/tags/uleb128/</loc>
     <lastmod>2023-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -162,14 +162,14 @@
   </url>
   
   <url>
-    <loc>https://yaodev.site/categories/Encoding/</loc>
+    <loc>https://yaodev.site/categories/Dart/</loc>
     <lastmod>2023-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://yaodev.site/categories/Dart/</loc>
+    <loc>https://yaodev.site/categories/Encoding/</loc>
     <lastmod>2023-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
