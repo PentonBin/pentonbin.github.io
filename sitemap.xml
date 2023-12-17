@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://yaodev.site/categories/index.html</loc>
+    <loc>https://yaodev.site/about/index.html</loc>
     
     <lastmod>2023-12-16</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://yaodev.site/about/index.html</loc>
+    <loc>https://yaodev.site/categories/index.html</loc>
     
     <lastmod>2023-12-16</lastmod>
     
@@ -111,13 +111,6 @@
   </url>
   
   <url>
-    <loc>https://yaodev.site/tags/VMWare-Workstation/</loc>
-    <lastmod>2023-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://yaodev.site/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</loc>
     <lastmod>2023-12-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -125,14 +118,7 @@
   </url>
   
   <url>
-    <loc>https://yaodev.site/tags/wine/</loc>
-    <lastmod>2023-12-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://yaodev.site/tags/QQ/</loc>
+    <loc>https://yaodev.site/tags/VMWare-Workstation/</loc>
     <lastmod>2023-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -147,6 +133,20 @@
   
   <url>
     <loc>https://yaodev.site/tags/uleb128/</loc>
+    <lastmod>2023-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yaodev.site/tags/wine/</loc>
+    <lastmod>2023-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://yaodev.site/tags/QQ/</loc>
     <lastmod>2023-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
