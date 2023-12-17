@@ -204,6 +204,55 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu16.04安装VMWare Workstation</title>
+    <url>/2018/03/07/Ubuntu16.04%E5%AE%89%E8%A3%85VMWare%20Workstation/</url>
+    <content><![CDATA[<h2 id="一、安装过程"><a href="#一、安装过程" class="headerlink" title="一、安装过程"></a>一、安装过程</h2><h3 id="1-安装开发工具"><a href="#1-安装开发工具" class="headerlink" title="1. 安装开发工具"></a>1. 安装开发工具</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install build-essential</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-下载"><a href="#2-下载" class="headerlink" title="2. 下载"></a>2. 下载</h3><p>从VMWare的官网<span class="exturl" data-url="aHR0cDovL3d3dy52bXdhcmUuY29tL2dvL3RyeXdvcmtzdGF0aW9uLWxpbnV4LTY0">http://www.vmware.com/go/tryworkstation-linux-64<i class="fa fa-external-link-alt"></i></span> 下载，文件类型是<code>.bundle</code>。<br>此时下载的版本是Vmware Workstation 14。</p>
+<span id="more"></span>
+
+
+<h3 id="3-安装VMWare"><a href="#3-安装VMWare" class="headerlink" title="3. 安装VMWare"></a>3. 安装VMWare</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chmod</span> a+x VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo ./VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle</span></span><br></pre></td></tr></table></figure>
+<p>执行后会出现VMWare的安装窗口，需要同意协议、选择是否在启动时检查更新等操作，最后安装完成。</p>
+<h3 id="4-启动VMWare"><a href="#4-启动VMWare" class="headerlink" title="4. 启动VMWare"></a>4. 启动VMWare</h3><p>在终端启动，或者在菜单启动</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vmware</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="5-激活密钥"><a href="#5-激活密钥" class="headerlink" title="5. 激活密钥"></a>5. 激活密钥</h3><p>网上找的VMware workstation 14永久激活密钥：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CG54H-D8D0H-H8DHY-C6X7X-N2KG6</span><br><span class="line">ZC3WK-AFXEK-488JP-A7MQX-XL8YF</span><br><span class="line">AC5XK-0ZD4H-088HP-9NQZV-ZG2R4</span><br><span class="line">ZC5XK-A6E0M-080XQ-04ZZG-YF08D</span><br><span class="line">ZY5H0-D3Y8K-M89EZ-AYPEG-MYUA8</span><br><span class="line">FF590-2DX83-M81LZ-XDM7E-MKUT4</span><br><span class="line">FF31K-AHZD1-H8ETZ-8WWEZ-WUUVA</span><br><span class="line">CV7T2-6WY5Q-48EWP-ZXY7X-QGUWD</span><br><span class="line">AALYG-20HVE-WHQ13-67MUP-XVMF3</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-卸载VMWare"><a href="#6-卸载VMWare" class="headerlink" title="6. 卸载VMWare"></a>6. 卸载VMWare</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo vmware-installer --uninstall-product vmware-workstation</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="二、解决could-not-open-dev-vmmon-no-such-file-or-directory问题"><a href="#二、解决could-not-open-dev-vmmon-no-such-file-or-directory问题" class="headerlink" title="二、解决could not open &#x2F;dev&#x2F;vmmon no such file or directory问题"></a>二、解决could not open &#x2F;dev&#x2F;vmmon no such file or directory问题</h2><h3 id="1-方法1"><a href="#1-方法1" class="headerlink" title="1. 方法1"></a>1. 方法1</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /tmp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">tar -xzvf /usr/lib/vmware/modules/source/vmmon.tar</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> vmmon-only/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">make</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">cp</span> vmmon.ko /lib/modules/4.4.0-116-generic/misc/vmmon.ko</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo modprobe vmmon</span></span><br></pre></td></tr></table></figure>
+<p>如果执行tar解压时候出现：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gzip: stdin: not in gzip format</span><br><span class="line">tar: Child returned status 1</span><br><span class="line">tar: Error is not recoverable: exiting now</span><br></pre></td></tr></table></figure>
+<p>则将上面<code>tar -xzvf /usr/lib/vmware/modules/source/vmmon.tar</code>命令改为：<code>tar xvf /usr/lib/vmware/modules/source/vmmon.tar</code></p>
+<p>执行完上面的步骤之后，启动虚拟机，看是否解决了问题。</p>
+<p><strong>参考：</strong><span class="exturl" data-url="aHR0cHM6Ly9jb21tdW5pdGllcy52bXdhcmUuY29tL21lc3NhZ2UvMjQ0Mjc4Mw==">https://communities.vmware.com/message/2442783<i class="fa fa-external-link-alt"></i></span></p>
+<h3 id="2-方法2"><a href="#2-方法2" class="headerlink" title="2. 方法2"></a>2. 方法2</h3><p>可能出现的原因和gcc版本有关，所以查看自己gcc的版本：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gcc --version</span></span><br><span class="line">gcc (Ubuntu 5.4.0-6ubuntu1~16.04.9) 5.4.0 20160609</span><br><span class="line">Copyright (C) 2015 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source for copying conditions. There is NO</span><br><span class="line">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
+<p>如果gcc版本太低，例如4.5（4.6及以上应该没问题），则安装新版本的gcc，例如：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install gcc-5</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">rm</span> /usr/bin/gcc</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">ln</span> -s /usr/bin/gcc-5 /usr/bin/gcc</span></span><br></pre></td></tr></table></figure>
+
+<p>确认更新gcc版本之后，执行：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo vmware-modconfig --console --install-all</span></span><br></pre></td></tr></table></figure>
+<p>如果最后出现以下结果则表示成功。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Starting VMware services:</span><br><span class="line">   Virtual machine monitor                  done</span><br><span class="line">   Virtual machine communication interface  done</span><br><span class="line">   VM communication interface socket family done</span><br><span class="line">   Blocking file system                     done</span><br><span class="line">   Virtual ethernet                         done</span><br><span class="line">   VMware Authentication Daemon             done</span><br><span class="line">   Shared Memory Available                  done</span><br></pre></td></tr></table></figure>
+<p>如果最后执行结果中出现了如下的failed，则<strong>关闭BIOS中的secure boot</strong>，然后再执行：<code>sudo vmware-modconfig --console --install-all</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Starting VMware services:</span><br><span class="line">   Virtual machine monitor                  failed</span><br><span class="line">   Virtual machine communication interface  done</span><br><span class="line">   VM communication interface socket family done</span><br><span class="line">   Blocking file system                     done</span><br><span class="line">   Virtual ethernet                         failed</span><br><span class="line">   VMware Authentication Daemon             done</span><br><span class="line">   Shared Memory Available                  done</span><br></pre></td></tr></table></figure>
+
+<p><strong>参考：</strong><span class="exturl" data-url="aHR0cHM6Ly9jb21tdW5pdGllcy52bXdhcmUuY29tL21lc3NhZ2UvMjYxMTUxNyMyNjExNTE3">https://communities.vmware.com/message/2611517#2611517<i class="fa fa-external-link-alt"></i></span></p>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>VMWare Workstation</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Ubuntu搭载Android开发环境（无需翻墙）</title>
     <url>/2017/11/27/Ubuntu%E6%90%AD%E8%BD%BDAndroid%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%88%E6%97%A0%E9%9C%80%E7%BF%BB%E5%A2%99%EF%BC%89/</url>
     <content><![CDATA[<h2 id="一、相关下载的地址"><a href="#一、相关下载的地址" class="headerlink" title="一、相关下载的地址"></a>一、相关下载的地址</h2><ol>
@@ -279,55 +328,6 @@
         <tag>Android</tag>
         <tag>Ubuntu</tag>
         <tag>开发环境</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Ubuntu16.04安装VMWare Workstation</title>
-    <url>/2018/03/07/Ubuntu16.04%E5%AE%89%E8%A3%85VMWare%20Workstation/</url>
-    <content><![CDATA[<h2 id="一、安装过程"><a href="#一、安装过程" class="headerlink" title="一、安装过程"></a>一、安装过程</h2><h3 id="1-安装开发工具"><a href="#1-安装开发工具" class="headerlink" title="1. 安装开发工具"></a>1. 安装开发工具</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install build-essential</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-下载"><a href="#2-下载" class="headerlink" title="2. 下载"></a>2. 下载</h3><p>从VMWare的官网<span class="exturl" data-url="aHR0cDovL3d3dy52bXdhcmUuY29tL2dvL3RyeXdvcmtzdGF0aW9uLWxpbnV4LTY0">http://www.vmware.com/go/tryworkstation-linux-64<i class="fa fa-external-link-alt"></i></span> 下载，文件类型是<code>.bundle</code>。<br>此时下载的版本是Vmware Workstation 14。</p>
-<span id="more"></span>
-
-
-<h3 id="3-安装VMWare"><a href="#3-安装VMWare" class="headerlink" title="3. 安装VMWare"></a>3. 安装VMWare</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">chmod</span> a+x VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo ./VMware-Workstation-Full-14.1.1-7528167.x86_64.bundle</span></span><br></pre></td></tr></table></figure>
-<p>执行后会出现VMWare的安装窗口，需要同意协议、选择是否在启动时检查更新等操作，最后安装完成。</p>
-<h3 id="4-启动VMWare"><a href="#4-启动VMWare" class="headerlink" title="4. 启动VMWare"></a>4. 启动VMWare</h3><p>在终端启动，或者在菜单启动</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">vmware</span></span><br></pre></td></tr></table></figure>
-
-
-<h3 id="5-激活密钥"><a href="#5-激活密钥" class="headerlink" title="5. 激活密钥"></a>5. 激活密钥</h3><p>网上找的VMware workstation 14永久激活密钥：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">CG54H-D8D0H-H8DHY-C6X7X-N2KG6</span><br><span class="line">ZC3WK-AFXEK-488JP-A7MQX-XL8YF</span><br><span class="line">AC5XK-0ZD4H-088HP-9NQZV-ZG2R4</span><br><span class="line">ZC5XK-A6E0M-080XQ-04ZZG-YF08D</span><br><span class="line">ZY5H0-D3Y8K-M89EZ-AYPEG-MYUA8</span><br><span class="line">FF590-2DX83-M81LZ-XDM7E-MKUT4</span><br><span class="line">FF31K-AHZD1-H8ETZ-8WWEZ-WUUVA</span><br><span class="line">CV7T2-6WY5Q-48EWP-ZXY7X-QGUWD</span><br><span class="line">AALYG-20HVE-WHQ13-67MUP-XVMF3</span><br></pre></td></tr></table></figure>
-
-<h3 id="6-卸载VMWare"><a href="#6-卸载VMWare" class="headerlink" title="6. 卸载VMWare"></a>6. 卸载VMWare</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo vmware-installer --uninstall-product vmware-workstation</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="二、解决could-not-open-dev-vmmon-no-such-file-or-directory问题"><a href="#二、解决could-not-open-dev-vmmon-no-such-file-or-directory问题" class="headerlink" title="二、解决could not open &#x2F;dev&#x2F;vmmon no such file or directory问题"></a>二、解决could not open &#x2F;dev&#x2F;vmmon no such file or directory问题</h2><h3 id="1-方法1"><a href="#1-方法1" class="headerlink" title="1. 方法1"></a>1. 方法1</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> /tmp</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">tar -xzvf /usr/lib/vmware/modules/source/vmmon.tar</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> vmmon-only/</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">make</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">cp</span> vmmon.ko /lib/modules/4.4.0-116-generic/misc/vmmon.ko</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo modprobe vmmon</span></span><br></pre></td></tr></table></figure>
-<p>如果执行tar解压时候出现：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gzip: stdin: not in gzip format</span><br><span class="line">tar: Child returned status 1</span><br><span class="line">tar: Error is not recoverable: exiting now</span><br></pre></td></tr></table></figure>
-<p>则将上面<code>tar -xzvf /usr/lib/vmware/modules/source/vmmon.tar</code>命令改为：<code>tar xvf /usr/lib/vmware/modules/source/vmmon.tar</code></p>
-<p>执行完上面的步骤之后，启动虚拟机，看是否解决了问题。</p>
-<p><strong>参考：</strong><span class="exturl" data-url="aHR0cHM6Ly9jb21tdW5pdGllcy52bXdhcmUuY29tL21lc3NhZ2UvMjQ0Mjc4Mw==">https://communities.vmware.com/message/2442783<i class="fa fa-external-link-alt"></i></span></p>
-<h3 id="2-方法2"><a href="#2-方法2" class="headerlink" title="2. 方法2"></a>2. 方法2</h3><p>可能出现的原因和gcc版本有关，所以查看自己gcc的版本：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">gcc --version</span></span><br><span class="line">gcc (Ubuntu 5.4.0-6ubuntu1~16.04.9) 5.4.0 20160609</span><br><span class="line">Copyright (C) 2015 Free Software Foundation, Inc.</span><br><span class="line">This is free software; see the source for copying conditions. There is NO</span><br><span class="line">warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</span><br></pre></td></tr></table></figure>
-<p>如果gcc版本太低，例如4.5（4.6及以上应该没问题），则安装新版本的gcc，例如：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo apt install gcc-5</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">rm</span> /usr/bin/gcc</span></span><br><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo <span class="built_in">ln</span> -s /usr/bin/gcc-5 /usr/bin/gcc</span></span><br></pre></td></tr></table></figure>
-
-<p>确认更新gcc版本之后，执行：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">sudo vmware-modconfig --console --install-all</span></span><br></pre></td></tr></table></figure>
-<p>如果最后出现以下结果则表示成功。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Starting VMware services:</span><br><span class="line">   Virtual machine monitor                  done</span><br><span class="line">   Virtual machine communication interface  done</span><br><span class="line">   VM communication interface socket family done</span><br><span class="line">   Blocking file system                     done</span><br><span class="line">   Virtual ethernet                         done</span><br><span class="line">   VMware Authentication Daemon             done</span><br><span class="line">   Shared Memory Available                  done</span><br></pre></td></tr></table></figure>
-<p>如果最后执行结果中出现了如下的failed，则<strong>关闭BIOS中的secure boot</strong>，然后再执行：<code>sudo vmware-modconfig --console --install-all</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">Starting VMware services:</span><br><span class="line">   Virtual machine monitor                  failed</span><br><span class="line">   Virtual machine communication interface  done</span><br><span class="line">   VM communication interface socket family done</span><br><span class="line">   Blocking file system                     done</span><br><span class="line">   Virtual ethernet                         failed</span><br><span class="line">   VMware Authentication Daemon             done</span><br><span class="line">   Shared Memory Available                  done</span><br></pre></td></tr></table></figure>
-
-<p><strong>参考：</strong><span class="exturl" data-url="aHR0cHM6Ly9jb21tdW5pdGllcy52bXdhcmUuY29tL21lc3NhZ2UvMjYxMTUxNyMyNjExNTE3">https://communities.vmware.com/message/2611517#2611517<i class="fa fa-external-link-alt"></i></span></p>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>Ubuntu</tag>
-        <tag>VMWare Workstation</tag>
       </tags>
   </entry>
   <entry>
