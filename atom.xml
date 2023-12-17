@@ -3,11 +3,11 @@
   <title>yao&#39;s blog</title>
   
   
-  <link href="https://pentonbin.github.io/atom.xml" rel="self"/>
+  <link href="https://yaodev.site/atom.xml" rel="self"/>
   
-  <link href="https://pentonbin.github.io/"/>
+  <link href="https://yaodev.site/"/>
   <updated>2023-12-17T03:42:39.912Z</updated>
-  <id>https://pentonbin.github.io/</id>
+  <id>https://yaodev.site/</id>
   
   <author>
     <name>pentonbin</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Javaer入门Dart</title>
-    <link href="https://pentonbin.github.io/2018/12/09/Javaer%E5%85%A5%E9%97%A8Dart/"/>
-    <id>https://pentonbin.github.io/2018/12/09/Javaer%E5%85%A5%E9%97%A8Dart/</id>
+    <link href="https://yaodev.site/2018/12/09/Javaer%E5%85%A5%E9%97%A8Dart/"/>
+    <id>https://yaodev.site/2018/12/09/Javaer%E5%85%A5%E9%97%A8Dart/</id>
     <published>2018-12-09T07:25:00.000Z</published>
     <updated>2023-12-17T03:42:39.912Z</updated>
     
@@ -42,21 +42,21 @@
     
     
     
-    <category term="Dart" scheme="https://pentonbin.github.io/categories/Dart/"/>
+    <category term="Dart" scheme="https://yaodev.site/categories/Dart/"/>
     
     
-    <category term="Dart" scheme="https://pentonbin.github.io/tags/Dart/"/>
+    <category term="Android" scheme="https://yaodev.site/tags/Android/"/>
     
-    <category term="Flutter" scheme="https://pentonbin.github.io/tags/Flutter/"/>
+    <category term="Dart" scheme="https://yaodev.site/tags/Dart/"/>
     
-    <category term="Android" scheme="https://pentonbin.github.io/tags/Android/"/>
+    <category term="Flutter" scheme="https://yaodev.site/tags/Flutter/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu16.04安装VMWare Workstation</title>
-    <link href="https://pentonbin.github.io/2018/03/07/Ubuntu16.04%E5%AE%89%E8%A3%85VMWare%20Workstation/"/>
-    <id>https://pentonbin.github.io/2018/03/07/Ubuntu16.04%E5%AE%89%E8%A3%85VMWare%20Workstation/</id>
+    <link href="https://yaodev.site/2018/03/07/Ubuntu16.04%E5%AE%89%E8%A3%85VMWare%20Workstation/"/>
+    <id>https://yaodev.site/2018/03/07/Ubuntu16.04%E5%AE%89%E8%A3%85VMWare%20Workstation/</id>
     <published>2018-03-07T08:02:00.000Z</published>
     <updated>2023-12-17T03:42:25.707Z</updated>
     
@@ -69,19 +69,19 @@
     
     
     
-    <category term="Ubuntu" scheme="https://pentonbin.github.io/categories/Ubuntu/"/>
+    <category term="Ubuntu" scheme="https://yaodev.site/categories/Ubuntu/"/>
     
     
-    <category term="Ubuntu" scheme="https://pentonbin.github.io/tags/Ubuntu/"/>
+    <category term="Ubuntu" scheme="https://yaodev.site/tags/Ubuntu/"/>
     
-    <category term="VMWare Workstation" scheme="https://pentonbin.github.io/tags/VMWare-Workstation/"/>
+    <category term="VMWare Workstation" scheme="https://yaodev.site/tags/VMWare-Workstation/"/>
     
   </entry>
   
   <entry>
     <title>Ubuntu搭载Android开发环境（无需翻墙）</title>
-    <link href="https://pentonbin.github.io/2017/11/27/Ubuntu%E6%90%AD%E8%BD%BDAndroid%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%88%E6%97%A0%E9%9C%80%E7%BF%BB%E5%A2%99%EF%BC%89/"/>
-    <id>https://pentonbin.github.io/2017/11/27/Ubuntu%E6%90%AD%E8%BD%BDAndroid%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%88%E6%97%A0%E9%9C%80%E7%BF%BB%E5%A2%99%EF%BC%89/</id>
+    <link href="https://yaodev.site/2017/11/27/Ubuntu%E6%90%AD%E8%BD%BDAndroid%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%88%E6%97%A0%E9%9C%80%E7%BF%BB%E5%A2%99%EF%BC%89/"/>
+    <id>https://yaodev.site/2017/11/27/Ubuntu%E6%90%AD%E8%BD%BDAndroid%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%EF%BC%88%E6%97%A0%E9%9C%80%E7%BF%BB%E5%A2%99%EF%BC%89/</id>
     <published>2017-11-27T11:27:00.000Z</published>
     <updated>2023-12-17T03:42:02.153Z</updated>
     
@@ -104,23 +104,23 @@
     
     
     
-    <category term="Ubuntu" scheme="https://pentonbin.github.io/categories/Ubuntu/"/>
+    <category term="Ubuntu" scheme="https://yaodev.site/categories/Ubuntu/"/>
     
-    <category term="Android" scheme="https://pentonbin.github.io/categories/Ubuntu/Android/"/>
+    <category term="Android" scheme="https://yaodev.site/categories/Ubuntu/Android/"/>
     
     
-    <category term="Android" scheme="https://pentonbin.github.io/tags/Android/"/>
+    <category term="Ubuntu" scheme="https://yaodev.site/tags/Ubuntu/"/>
     
-    <category term="Ubuntu" scheme="https://pentonbin.github.io/tags/Ubuntu/"/>
+    <category term="Android" scheme="https://yaodev.site/tags/Android/"/>
     
-    <category term="开发环境" scheme="https://pentonbin.github.io/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    <category term="开发环境" scheme="https://yaodev.site/tags/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
     
   </entry>
   
   <entry>
     <title>wine安装最新版QQ</title>
-    <link href="https://pentonbin.github.io/2017/11/26/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/"/>
-    <id>https://pentonbin.github.io/2017/11/26/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/</id>
+    <link href="https://yaodev.site/2017/11/26/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/"/>
+    <id>https://yaodev.site/2017/11/26/wine%E5%AE%89%E8%A3%85%E6%9C%80%E6%96%B0%E7%89%88QQ/</id>
     <published>2017-11-26T11:27:00.000Z</published>
     <updated>2023-12-17T03:35:30.418Z</updated>
     
@@ -131,14 +131,14 @@
     
     
     
-    <category term="Ubuntu" scheme="https://pentonbin.github.io/categories/Ubuntu/"/>
+    <category term="Ubuntu" scheme="https://yaodev.site/categories/Ubuntu/"/>
     
     
-    <category term="Ubuntu" scheme="https://pentonbin.github.io/tags/Ubuntu/"/>
+    <category term="Ubuntu" scheme="https://yaodev.site/tags/Ubuntu/"/>
     
-    <category term="wine" scheme="https://pentonbin.github.io/tags/wine/"/>
+    <category term="wine" scheme="https://yaodev.site/tags/wine/"/>
     
-    <category term="QQ" scheme="https://pentonbin.github.io/tags/QQ/"/>
+    <category term="QQ" scheme="https://yaodev.site/tags/QQ/"/>
     
   </entry>
   
